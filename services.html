@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Services | Ace Digitals Global — Websites, AI Automation, Social Media & More</title>
+<meta name="description" content="Explore Ace Digitals Global services: Website Development, AI Automation, Social Media Marketing, Google My Business, SaaS Development, and CV Revamp.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--navy:#0F1B2E;--blue:#0088FF;--cyan:#00D4FF;--gold:#FFD700;--gold2:#FFED4E;--bg:#1a2a3e;--text:#e8f0fe;--muted:#8899aa;--card:rgba(255,255,255,0.04);--border:rgba(0,136,255,0.2);}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{background:var(--navy);color:var(--text);font-family:'DM Sans',sans-serif;overflow-x:hidden;}
+h1,h2,h3,h4,h5{font-family:'Syne',sans-serif;}
+nav{position:fixed;top:0;left:0;right:0;z-index:1000;padding:1rem 2rem;display:flex;align-items:center;justify-content:space-between;background:rgba(15,27,46,0.92);backdrop-filter:blur(20px);border-bottom:1px solid var(--border);}
+.nav-logo{font-family:'Syne',sans-serif;font-weight:800;font-size:1.3rem;background:linear-gradient(135deg,var(--blue),var(--cyan));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;text-decoration:none;}
+.nav-logo span{color:var(--gold);-webkit-text-fill-color:var(--gold);}
+.nav-links{display:flex;gap:2rem;list-style:none;align-items:center;}
+.nav-links a{color:var(--muted);text-decoration:none;font-size:0.9rem;font-weight:500;transition:color 0.2s;}
+.nav-links a:hover{color:var(--cyan);}
+.nav-cta{background:linear-gradient(135deg,var(--blue),var(--cyan));color:#fff!important;padding:0.5rem 1.2rem;border-radius:100px;font-weight:600!important;}
+.page-hero{padding:10rem 2rem 6rem;background:linear-gradient(180deg,#0F1B2E,#1a2a3e);text-align:center;position:relative;overflow:hidden;}
+.page-hero::before{content:'';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:800px;height:400px;background:radial-gradient(ellipse,rgba(0,136,255,0.1) 0%,transparent 70%);}
+.section-tag{display:inline-block;color:var(--cyan);font-size:0.8rem;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;margin-bottom:1rem;}
+.page-title{font-size:clamp(2.5rem,5vw,4rem);font-weight:800;line-height:1.1;letter-spacing:-0.02em;margin-bottom:1rem;}
+.highlight{background:linear-gradient(135deg,var(--blue),var(--cyan));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+.page-sub{color:var(--muted);font-size:1.1rem;max-width:600px;margin:0 auto;line-height:1.7;}
+.container{max-width:1100px;margin:0 auto;}
+
+/* SERVICE BLOCKS */
+.service-block{padding:7rem 2rem;position:relative;overflow:hidden;}
+.service-block:nth-child(odd){background:var(--navy);}
+.service-block:nth-child(even){background:linear-gradient(180deg,#1a2a3e,var(--navy));}
+.service-inner{display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:start;}
+.service-inner.reverse{direction:rtl;}
+.service-inner.reverse>*{direction:ltr;}
+.service-header .service-icon-big{font-size:3rem;margin-bottom:1rem;}
+.service-header h2{font-size:2rem;font-weight:800;margin-bottom:1rem;line-height:1.2;}
+.service-header p{color:var(--muted);font-size:1rem;line-height:1.7;margin-bottom:1.5rem;}
+.features-list{display:flex;flex-direction:column;gap:0.75rem;margin:1.5rem 0;}
+.feature-item{display:flex;align-items:flex-start;gap:0.75rem;padding:0.75rem;background:rgba(0,136,255,0.05);border:1px solid rgba(0,136,255,0.1);border-radius:10px;}
+.feature-item .check{color:var(--cyan);font-size:0.9rem;margin-top:2px;flex-shrink:0;}
+.feature-item p{color:var(--muted);font-size:0.875rem;line-height:1.5;}
+.feature-item strong{color:var(--text);display:block;font-size:0.9rem;margin-bottom:2px;}
+.process-steps{display:flex;flex-direction:column;gap:1rem;}
+.process-step{display:flex;gap:1rem;align-items:flex-start;padding:1.2rem;background:var(--card);border:1px solid var(--border);border-radius:14px;transition:all 0.3s;}
+.process-step:hover{border-color:rgba(0,212,255,0.3);}
+.step-num{width:32px;height:32px;background:linear-gradient(135deg,var(--blue),var(--cyan));border-radius:8px;display:flex;align-items:center;justify-content:center;font-family:'Syne',sans-serif;font-weight:800;font-size:0.85rem;color:#fff;flex-shrink:0;}
+.step-content h4{font-size:0.9rem;font-weight:700;color:#fff;margin-bottom:0.3rem;}
+.step-content p{color:var(--muted);font-size:0.8rem;line-height:1.5;}
+.results-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-top:2rem;}
+.result-card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:1.5rem;text-align:center;}
+.result-num{font-family:'Syne',sans-serif;font-size:2rem;font-weight:800;background:linear-gradient(135deg,var(--blue),var(--cyan));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+.result-label{color:var(--muted);font-size:0.8rem;margin-top:0.25rem;}
+
+.btn-primary{background:linear-gradient(135deg,var(--blue),var(--cyan));color:#fff;padding:0.9rem 2rem;border-radius:100px;font-weight:700;font-size:1rem;text-decoration:none;display:inline-flex;align-items:center;gap:0.5rem;transition:all 0.3s;font-family:'Syne',sans-serif;border:none;cursor:pointer;}
+.btn-primary:hover{box-shadow:0 0 50px rgba(0,136,255,0.5);transform:translateY(-2px);}
+.btn-ghost{background:transparent;color:var(--cyan);border:1px solid rgba(0,212,255,0.4);padding:0.9rem 2rem;border-radius:100px;font-weight:700;font-size:1rem;text-decoration:none;display:inline-flex;align-items:center;gap:0.5rem;transition:all 0.3s;font-family:'Syne',sans-serif;margin-left:1rem;}
+.btn-ghost:hover{background:rgba(0,212,255,0.1);}
+
+/* PRICING */
+.pricing-teaser{background:linear-gradient(135deg,rgba(0,136,255,0.1),rgba(0,212,255,0.06));border:1px solid rgba(0,212,255,0.25);border-radius:16px;padding:2rem;margin-top:2rem;}
+.pricing-teaser h4{font-size:1rem;font-weight:700;margin-bottom:0.75rem;color:var(--cyan);}
+.price-range{font-family:'Syne',sans-serif;font-size:1.8rem;font-weight:800;background:linear-gradient(135deg,var(--gold),var(--gold2));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+.price-note{color:var(--muted);font-size:0.8rem;margin-top:0.5rem;}
+
+.whatsapp-float{position:fixed;bottom:2rem;right:2rem;z-index:999;width:58px;height:58px;background:#25D366;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 8px 30px rgba(37,211,102,0.4);text-decoration:none;font-size:1.6rem;animation:float-wa 3s ease-in-out infinite;}
+@keyframes float-wa{0%,100%{transform:translateY(0);}50%{transform:translateY(-6px);}}
+footer{background:#0a1525;border-top:1px solid var(--border);padding:3rem 2rem;text-align:center;}
+footer p{color:var(--muted);font-size:0.85rem;}
+footer a{color:var(--cyan);text-decoration:none;}
+.fade-up{opacity:0;transform:translateY(40px);transition:opacity 0.8s ease,transform 0.8s ease;}
+.fade-up.visible{opacity:1;transform:translateY(0);}
+@media(max-width:768px){
+  .service-inner,.service-inner.reverse{grid-template-columns:1fr;direction:ltr;}
+  .results-grid{grid-template-columns:1fr 1fr;}
+  .nav-links{display:none;}
+}
+</style>
+</head>
+<body>
+<nav>
+  <a href="../index.html" class="nav-logo">ACE DIGITALS <span>GLOBAL</span></a>
+  <ul class="nav-links">
+    <li><a href="../index.html">Home</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="services.html">Services</a></li>
+    <li><a href="portfolio.html">Portfolio</a></li>
+    <li><a href="store.html">Store</a></li>
+    <li><a href="blog.html">Blog</a></li>
+    <li><a href="contact.html" class="nav-cta">Get Started</a></li>
+  </ul>
+</nav>
+
+<div class="page-hero">
+  <span class="section-tag">⚡ Our Services</span>
+  <h1 class="page-title">Digital Services That <span class="highlight">Drive Real Results</span></h1>
+  <p class="page-sub">From world-class websites to intelligent AI automation — we deliver everything your brand needs to dominate the digital space.</p>
+</div>
+
+<!-- WEB DEV -->
+<section class="service-block" id="web-dev">
+  <div class="container">
+    <div class="service-inner fade-up">
+      <div class="service-header">
+        <div class="service-icon-big">🌐</div>
+        <span class="section-tag">Service 01</span>
+        <h2>Website <span class="highlight">Development</span></h2>
+        <p>We don't just build websites — we engineer digital experiences. Every site we create is fast, beautiful, conversion-optimized, and built to rank on Google from day one.</p>
+        <div class="features-list">
+          <div class="feature-item"><span class="check">✓</span><div><strong>Custom WordPress Development</strong><p>Premium themes, custom plugins, and bespoke designs that match your brand identity perfectly.</p></div></div>
+          <div class="feature-item"><span class="check">✓</span><div><strong>E-Commerce Solutions</strong><p>WooCommerce stores with payment gateways, inventory management, and mobile checkout.</p></div></div>
+          <div class="feature-item"><span class="check">✓</span><div><strong>Landing Pages & Sales Funnels</strong><p>High-converting landing pages designed specifically to turn visitors into paying customers.</p></div></div>
+          <div class="feature-item"><span class="check">✓</span><div><strong>SEO-Ready Architecture</strong><p>Built-in technical SEO, fast load times, structured data, and mobile-first indexing from launch.</p></div></div>
+        </div>
+        <div style="display:flex;gap:1rem;flex-wrap:wrap;">
+          <a href="contact.html" class="btn-primary">Get a Website →</a>
+          <a href="portfolio.html" class="btn-ghost">See Examples</a>
+        </div>
+      </div>
+      <div>
+        <div class="process-steps">
+          <h3 style="margin-bottom:1rem;font-size:1rem;color:var(--cyan);letter-spacing:0.1em;text-transform:uppercase;">Our Process</h3>
+          <div class="process-step"><div class="step-num">1</div><div class="step-content"><h4>Discovery & Strategy</h4><p>We learn your business, goals, competitors, and target audience before writing a single line of code.</p></div></div>
+          <div class="process-step"><div class="step-num">2</div><div class="step-content"><h4>Design & Prototyping</h4><p>Custom wireframes and visual mockups for your approval before development begins.</p></div></div>
+          <div class="process-step"><div class="step-num">3</div><div class="step-content"><h4>Development & Testing</h4><p>Clean code build, cross-browser testing, speed optimization, and mobile responsiveness.</p></div></div>
+          <div class="process-step"><div class="step-num">4</div><div class="step-content"><h4>Launch & Support</h4><p>Live deployment, training, and 30-day post-launch support to ensure everything runs perfectly.</p></div></div>
+        </div>
+        <div class="results-grid">
+          <div class="result-card"><div class="result-num">200+</div><div class="result-label">Sites Launched</div></div>
+          <div class="result-card"><div class="result-num">98%</div><div class="result-label">Client Satisfaction</div></div>
+          <div class="result-card"><div class="result-num">3x</div><div class="result-label">Avg Traffic Increase</div></div>
+          <div class="result-card"><div class="result-num">48hr</div><div class="result-label">Turnaround (Landing Pages)</div></div>
+        </div>
+        <div class="pricing-teaser">
+          <h4>💰 Pricing Starts From</h4>
+          <div class="price-range">₦150,000</div>
+          <div class="price-note">Full website packages. Custom quotes for complex projects.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SOCIAL MEDIA -->
+<section class="service-block" id="social">
+  <div class="container">
+    <div class="service-inner reverse fade-up">
+      <div class="service-header">
+        <div class="service-icon-big">📲</div>
+        <span class="section-tag">Service 02</span>
+        <h2>Social Media <span class="highlight">Marketing</span></h2>
+        <p>Strategic social media management that builds real audiences, drives engagement, and converts followers into customers — across every platform that matters.</p>
+        <div class="features-list">
+          <div class="feature-item"><span class="check">✓</span><div><strong>Content Strategy & Calendar</strong><p>Monthly content planning aligned with your business goals and audience interests.</p></div></div>
+          <div class="feature-item"><span class="check">✓</span><div><strong>Graphic Design & Copywriting</strong><p>Scroll-stopping visuals and compelling captions crafted for each platform.</p></div></div>
+          <div class="feature-item"><span class="check">✓</span><div><strong>Community Management</strong><p>Active daily engagement to grow your community and build brand loyalty.</p></div></div>
+          <div class="feature-item"><span class="check">✓</span><div><strong>Paid Social Advertising</strong><p>Targeted Facebook and Instagram ads that reach your ideal customers and drive conversions.</p></div></div>
+        </div>
+        <a href="contact.html" class="btn-primary">Grow My Social →</a>
+        <div class="pricing-teaser" style="margin-top:1.5rem;">
+          <h4>💰 Monthly Retainer From</h4>
+          <div class="price-range">₦80,000/mo</div>
+          <div class="price-note">Includes content, posting, and reporting.</div>
+        </div>
+      </div>
+      <div>
+        <div class="process-steps">
+          <h3 style="margin-bottom:1rem;font-size:1rem;color:var(--cyan);letter-spacing:0.1em;text-transform:uppercase;">Platforms We Manage</h3>
+          <div class="process-step"><div class="step-num">📸</div><div class="step-content"><h4>Instagram</h4><p>Feed posts, Reels, Stories, and Highlights optimized for reach and engagement.</p></div></div>
+          <div class="process-step"><div class="step-num">📘</div><div class="step-content"><h4>Facebook</h4><p>Page management, group moderation, events, and paid campaigns.</p></div></div>
+          <div class="process-step"><div class="step-num">🎵</div><div class="step-content"><h4>TikTok</h4><p>Short-form video strategy, trend leveraging, and viral content systems.</p></div></div>
+          <div class="process-step"><div class="step-num">🐦</div><div class="step-content"><h4>X (Twitter)</h4><p>Thought leadership threads, brand voice building, and conversation marketing.</p></div></div>
+          <div class="process-step"><div class="step-num">💼</div><div class="step-content"><h4>LinkedIn</h4><p>B2B content strategy, company page optimization, and lead generation posts.</p></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- AI AUTOMATION -->
+<section class="service-block" id="automation">
+  <div class="container">
+    <div class="service-inner fade-up">
+      <div class="service-header">
+        <div class="service-icon-big">🤖</div>
+        <span class="section-tag">Service 03</span>
+        <h2>AI Automation <span class="highlight">Systems</span></h2>
+        <p>We build intelligent automation workflows that work 24/7 — capturing leads, responding to customers, nurturing prospects, and running marketing campaigns on autopilot.</p>
+        <div class="features-list">
+          <div class="feature-item"><span class="check">✓</span><div><strong>AI Chatbots & Virtual Assistants</strong><p>Trained bots that handle inquiries, qualify leads, book appointments, and close sales autonomously.</p></div></div>
+          <div class="feature-item"><span class="check">✓</span><div><strong>CRM & Lead Automation</strong><p>Automated lead capture, scoring, tagging, and follow-up sequences that never miss an opportunity.</p></div></div>
+          <div class="feature-item"><span class="check">✓</span><div><strong>Email Marketing Automation</strong><p>Behavioral trigger sequences, welcome flows, and re-engagement campaigns that run themselves.</p></div></div>
+          <div class="feature-item"><span class="check">✓</span><div><strong>WhatsApp Business Automation</strong><p>Automated WhatsApp responses, order updates, and customer support flows for Nigerian businesses.</p></div></div>
+        </div>
+        <a href="contact.html" class="btn-primary">Build My Automation →</a>
+        <div class="pricing-teaser" style="margin-top:1.5rem;">
+          <h4>💰 Automation Projects From</h4>
+          <div class="price-range">₦200,000</div>
+          <div class="price-note">Custom-built systems. One-time setup + optional maintenance.</div>
+        </div>
+      </div>
+      <div>
+        <div class="process-steps">
+          <h3 style="margin-bottom:1rem;font-size:1rem;color:var(--cyan);letter-spacing:0.1em;text-transform:uppercase;">Automation Stack</h3>
+          <div class="process-step"><div class="step-num">⚡</div><div class="step-content"><h4>Make (Integromat) & Zapier</h4><p>No-code automation between 1000+ apps — CRM, email, social, and e-commerce.</p></div></div>
+          <div class="process-step"><div class="step-num">🤖</div><div class="step-content"><h4>OpenAI & Claude AI</h4><p>Large language model integration for intelligent responses, content, and decision-making.</p></div></div>
+          <div class="process-step"><div class="step-num">📱</div><div class="step-content"><h4>WhatsApp Business API</h4><p>Official Meta API integration for automated WhatsApp communication at scale.</p></div></div>
+          <div class="process-step"><div class="step-num">📊</div><div class="step-content"><h4>HubSpot & ActiveCampaign</h4><p>CRM automation, pipeline management, and behavioral email sequences.</p></div></div>
+        </div>
+        <div class="results-grid">
+          <div class="result-card"><div class="result-num">50+</div><div class="result-label">Systems Built</div></div>
+          <div class="result-card"><div class="result-num">15hr</div><div class="result-label">Avg Hours Saved/Week</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GMB -->
+<section class="service-block" id="gmb">
+  <div class="container">
+    <div class="service-inner reverse fade-up">
+      <div class="service-header">
+        <div class="service-icon-big">📍</div>
+        <span class="section-tag">Service 04</span>
+        <h2>Google My Business <span class="highlight">Optimization</span></h2>
+        <p>Claim your spot at the top of Google's local search results. We set up, optimize, and manage your GMB profile so customers find you first — every time.</p>
+        <div class="features-list">
+          <div class="feature-item"><span class="check">✓</span><div><strong>Full GMB Setup & Verification</strong><p>Complete profile creation and Google verification from start to finish.</p></div></div>
+          <div class="feature-item"><span class="check">✓</span><div><strong>Profile Optimization</strong><p>Keywords, categories, photos, posts, and Q&A optimized for maximum local visibility.</p></div></div>
+          <div class="feature-item"><span class="check">✓</span><div><strong>Review Management</strong><p>Strategy to generate positive reviews and professionally respond to all feedback.</p></div></div>
+          <div class="feature-item"><span class="check">✓</span><div><strong>Local SEO Integration</strong><p>NAP consistency, local citations, and linking to maximize your Google Maps ranking.</p></div></div>
+        </div>
+        <a href="contact.html" class="btn-primary">Rank Locally →</a>
+        <div class="pricing-teaser" style="margin-top:1.5rem;">
+          <h4>💰 GMB Setup Package</h4>
+          <div class="price-range">₦50,000</div>
+          <div class="price-note">One-time setup. Monthly management packages available.</div>
+        </div>
+      </div>
+      <div>
+        <div class="process-steps">
+          <h3 style="margin-bottom:1rem;font-size:1rem;color:var(--cyan);letter-spacing:0.1em;text-transform:uppercase;">What You Get</h3>
+          <div class="process-step"><div class="step-num">1</div><div class="step-content"><h4>Claim & Verify Your Listing</h4><p>We handle the full GMB claim and Google verification process for you.</p></div></div>
+          <div class="process-step"><div class="step-num">2</div><div class="step-content"><h4>Complete Profile Buildout</h4><p>Business info, hours, photos, services, products, and attributes — all filled in correctly.</p></div></div>
+          <div class="process-step"><div class="step-num">3</div><div class="step-content"><h4>Weekly GMB Posts</h4><p>Regular updates and posts to keep your profile active and ranking higher.</p></div></div>
+          <div class="process-step"><div class="step-num">4</div><div class="step-content"><h4>Monthly Ranking Reports</h4><p>Track your local search performance, calls generated, and map views.</p></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MONETIZATION -->
+<section class="service-block" id="monetization">
+  <div class="container">
+    <div class="service-inner fade-up">
+      <div class="service-header">
+        <div class="service-icon-big">💰</div>
+        <span class="section-tag">Service 05</span>
+        <h2>Social Media <span class="highlight">Monetization</span></h2>
+        <p>Turn your followers into consistent income. We build the systems, strategies, and products that transform your social media presence into a real business.</p>
+        <div class="features-list">
+          <div class="feature-item"><span class="check">✓</span><div><strong>Creator Monetization Strategy</strong><p>Brand deals, sponsorships, affiliate marketing, and creator funds — we map your income streams.</p></div></div>
+          <div class="feature-item"><span class="check">✓</span><div><strong>Digital Product Creation</strong><p>Ebooks, courses, templates, and presets you can sell to your audience on autopilot.</p></div></div>
+          <div class="feature-item"><span class="check">✓</span><div><strong>TikTok & Instagram Shop Setup</strong><p>Full e-commerce integration on social platforms for seamless in-app purchases.</p></div></div>
+          <div class="feature-item"><span class="check">✓</span><div><strong>Community Monetization</strong><p>Paid memberships, exclusive content, and subscription models for engaged followers.</p></div></div>
+        </div>
+        <a href="contact.html" class="btn-primary">Monetize My Audience →</a>
+      </div>
+      <div>
+        <div class="results-grid" style="margin-top:0;">
+          <div class="result-card"><div class="result-num">10x</div><div class="result-label">Avg ROI on Monetization</div></div>
+          <div class="result-card"><div class="result-num">₦1M+</div><div class="result-label">Creator Revenue Generated</div></div>
+          <div class="result-card"><div class="result-num">30</div><div class="result-label">Days to First Income</div></div>
+          <div class="result-card"><div class="result-num">100+</div><div class="result-label">Creators Helped</div></div>
+        </div>
+        <div class="pricing-teaser" style="margin-top:2rem;">
+          <h4>💰 Monetization Consultation</h4>
+          <div class="price-range">₦30,000</div>
+          <div class="price-note">1:1 strategy session + custom monetization roadmap.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SAAS -->
+<section class="service-block" id="saas">
+  <div class="container">
+    <div class="service-inner reverse fade-up">
+      <div class="service-header">
+        <div class="service-icon-big">⚙️</div>
+        <span class="section-tag">Service 06</span>
+        <h2>SaaS <span class="highlight">Development</span></h2>
+        <p>Got a software idea? We build it. From MVPs to full-scale platforms, we develop SaaS products that users love and that generate recurring revenue.</p>
+        <div class="features-list">
+          <div class="feature-item"><span class="check">✓</span><div><strong>MVP Development</strong><p>Lean, fast MVP builds to validate your idea and attract early users or investors.</p></div></div>
+          <div class="feature-item"><span class="check">✓</span><div><strong>Full Platform Development</strong><p>Scalable web applications with authentication, dashboards, billing, and admin panels.</p></div></div>
+          <div class="feature-item"><span class="check">✓</span><div><strong>API Development & Integration</strong><p>Custom REST APIs and third-party integrations for payment, SMS, and data systems.</p></div></div>
+          <div class="feature-item"><span class="check">✓</span><div><strong>Ongoing Maintenance & Support</strong><p>Monthly retainers for updates, security patches, and feature development.</p></div></div>
+        </div>
+        <a href="contact.html" class="btn-primary">Build My SaaS →</a>
+        <div class="pricing-teaser" style="margin-top:1.5rem;">
+          <h4>💰 SaaS Projects From</h4>
+          <div class="price-range">₦500,000</div>
+          <div class="price-note">Depends on scope. Free consultation to scope your project.</div>
+        </div>
+      </div>
+      <div>
+        <div class="process-steps">
+          <h3 style="margin-bottom:1rem;font-size:1rem;color:var(--cyan);letter-spacing:0.1em;text-transform:uppercase;">Our SaaS Tech Stack</h3>
+          <div class="process-step"><div class="step-num">⚛️</div><div class="step-content"><h4>Frontend</h4><p>React, Next.js, Vue.js — fast, modern, responsive interfaces.</p></div></div>
+          <div class="process-step"><div class="step-num">🔧</div><div class="step-content"><h4>Backend</h4><p>Node.js, PHP, Laravel — robust, scalable server-side architecture.</p></div></div>
+          <div class="process-step"><div class="step-num">🗄️</div><div class="step-content"><h4>Database</h4><p>MySQL, PostgreSQL, MongoDB — structured and flexible data storage.</p></div></div>
+          <div class="process-step"><div class="step-num">☁️</div><div class="step-content"><h4>Infrastructure</h4><p>AWS, Vercel, DigitalOcean — reliable, scalable cloud hosting.</p></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CV REVAMP -->
+<section class="service-block" id="cv">
+  <div class="container">
+    <div class="service-inner fade-up">
+      <div class="service-header">
+        <div class="service-icon-big">📄</div>
+        <span class="section-tag">Service 07</span>
+        <h2>CV Revamp <span class="highlight">Services</span></h2>
+        <p>Land your dream job or freelance client with a professionally crafted resume that stands out, gets past ATS systems, and tells your story powerfully.</p>
+        <div class="features-list">
+          <div class="feature-item"><span class="check">✓</span><div><strong>ATS-Optimized Formatting</strong><p>Designed to pass Applicant Tracking Systems used by major Nigerian and international companies.</p></div></div>
+          <div class="feature-item"><span class="check">✓</span><div><strong>Professional Copywriting</strong><p>Every word crafted to highlight your value, skills, and achievements compellingly.</p></div></div>
+          <div class="feature-item"><span class="check">✓</span><div><strong>LinkedIn Profile Optimization</strong><p>Complete LinkedIn makeover to attract recruiters and opportunities.</p></div></div>
+          <div class="feature-item"><span class="check">✓</span><div><strong>Cover Letter Writing</strong><p>Customized cover letters tailored to specific roles and companies.</p></div></div>
+        </div>
+        <a href="contact.html" class="btn-primary">Revamp My CV →</a>
+        <div class="pricing-teaser" style="margin-top:1.5rem;">
+          <h4>💰 CV Revamp Package</h4>
+          <div class="price-range">₦15,000</div>
+          <div class="price-note">Includes CV, cover letter template, and LinkedIn tips.</div>
+        </div>
+      </div>
+      <div>
+        <div class="process-steps">
+          <h3 style="margin-bottom:1rem;font-size:1rem;color:var(--cyan);letter-spacing:0.1em;text-transform:uppercase;">What's Included</h3>
+          <div class="process-step"><div class="step-num">📝</div><div class="step-content"><h4>Intake Form & Consultation</h4><p>We learn your career goals, experience, and target roles before writing anything.</p></div></div>
+          <div class="process-step"><div class="step-num">✍️</div><div class="step-content"><h4>Professional CV Writing</h4><p>Complete rewrite in Word and PDF format, ready to send within 48 hours.</p></div></div>
+          <div class="process-step"><div class="step-num">🔁</div><div class="step-content"><h4>2 Rounds of Revisions</h4><p>We refine until you're completely satisfied with the final result.</p></div></div>
+          <div class="process-step"><div class="step-num">📤</div><div class="step-content"><h4>Final Delivery</h4><p>Word, PDF, and editable template delivered via email and WhatsApp.</p></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>© 2025 Ace Digitals Global | <a href="../index.html">Home</a> | <a href="contact.html">Contact</a> | Lekki, Lagos, Nigeria 🇳🇬</p>
+</footer>
+
+<a href="https://wa.me/2349079581937?text=Hi%2C%20I%27m%20interested%20in%20your%20services" class="whatsapp-float" target="_blank">💬</a>
+
+<script>
+const observer=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible');});},{threshold:0.1});
+document.querySelectorAll('.fade-up').forEach(el=>observer.observe(el));
+</script>
+</body>
+</html>

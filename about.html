@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About Us | Ace Digitals Global — Our Story, Mission & Team</title>
+<meta name="description" content="Learn the story behind Ace Digitals Global — Lagos-based digital agency founded by Uchenna Richard in 2018. Our mission, vision, and values.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+<style>
+:root{--navy:#0F1B2E;--blue:#0088FF;--cyan:#00D4FF;--gold:#FFD700;--gold2:#FFED4E;--bg:#1a2a3e;--text:#e8f0fe;--muted:#8899aa;--card:rgba(255,255,255,0.04);--border:rgba(0,136,255,0.2);--glow:0 0 40px rgba(0,136,255,0.3);}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{background:var(--navy);color:var(--text);font-family:'DM Sans',sans-serif;overflow-x:hidden;}
+h1,h2,h3,h4,h5{font-family:'Syne',sans-serif;}
+nav{position:fixed;top:0;left:0;right:0;z-index:1000;padding:1rem 2rem;display:flex;align-items:center;justify-content:space-between;background:rgba(15,27,46,0.92);backdrop-filter:blur(20px);border-bottom:1px solid var(--border);}
+.nav-logo{font-family:'Syne',sans-serif;font-weight:800;font-size:1.3rem;background:linear-gradient(135deg,var(--blue),var(--cyan));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;text-decoration:none;}
+.nav-logo span{color:var(--gold);-webkit-text-fill-color:var(--gold);}
+.nav-links{display:flex;gap:2rem;list-style:none;align-items:center;}
+.nav-links a{color:var(--muted);text-decoration:none;font-size:0.9rem;font-weight:500;transition:color 0.2s;}
+.nav-links a:hover{color:var(--cyan);}
+.nav-cta{background:linear-gradient(135deg,var(--blue),var(--cyan));color:#fff!important;padding:0.5rem 1.2rem;border-radius:100px;font-weight:600!important;}
+.page-hero{padding:10rem 2rem 6rem;background:linear-gradient(180deg,#0F1B2E,#1a2a3e);text-align:center;position:relative;overflow:hidden;}
+.page-hero::before{content:'';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:800px;height:400px;background:radial-gradient(ellipse,rgba(0,136,255,0.1) 0%,transparent 70%);pointer-events:none;}
+.section-tag{display:inline-block;color:var(--cyan);font-size:0.8rem;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;margin-bottom:1rem;}
+.page-title{font-size:clamp(2.5rem,5vw,4rem);font-weight:800;line-height:1.1;letter-spacing:-0.02em;margin-bottom:1rem;}
+.highlight{background:linear-gradient(135deg,var(--blue),var(--cyan));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+.page-sub{color:var(--muted);font-size:1.1rem;max-width:600px;margin:0 auto;line-height:1.7;}
+section{padding:6rem 2rem;}
+.container{max-width:1100px;margin:0 auto;}
+.section-header{text-align:center;margin-bottom:4rem;}
+.section-title{font-size:clamp(2rem,4vw,3rem);font-weight:800;line-height:1.15;letter-spacing:-0.02em;}
+.section-sub{color:var(--muted);font-size:1.05rem;max-width:600px;margin:1rem auto 0;line-height:1.7;}
+
+/* STORY */
+.story-grid{display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center;}
+.story-text p{color:var(--muted);font-size:1rem;line-height:1.8;margin-bottom:1.2rem;}
+.story-text h2{font-size:2.2rem;font-weight:800;margin-bottom:1.5rem;line-height:1.2;}
+.story-visual{position:relative;}
+.story-card{background:var(--card);border:1px solid var(--border);border-radius:20px;padding:2.5rem;position:relative;overflow:hidden;}
+.story-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--blue),var(--cyan),var(--gold));}
+.timeline{display:flex;flex-direction:column;gap:1.2rem;margin-top:1.5rem;}
+.timeline-item{display:flex;gap:1rem;align-items:flex-start;}
+.timeline-dot{width:12px;height:12px;background:linear-gradient(135deg,var(--blue),var(--cyan));border-radius:50%;margin-top:5px;flex-shrink:0;}
+.timeline-year{font-family:'Syne',sans-serif;font-weight:800;color:var(--cyan);font-size:0.9rem;min-width:40px;}
+.timeline-desc{color:var(--muted);font-size:0.875rem;line-height:1.5;}
+
+/* FOUNDER */
+.founder-section{background:linear-gradient(180deg,var(--navy),#1a2a3e);}
+.founder-grid{display:grid;grid-template-columns:1fr 2fr;gap:4rem;align-items:center;}
+.founder-img-box{background:linear-gradient(135deg,rgba(0,136,255,0.2),rgba(0,212,255,0.1));border:1px solid var(--border);border-radius:20px;aspect-ratio:1;display:flex;align-items:center;justify-content:center;font-size:5rem;position:relative;overflow:hidden;}
+.founder-img-box::after{content:'';position:absolute;inset:0;background:linear-gradient(45deg,transparent 60%,rgba(0,212,255,0.1));}
+.founder-info h2{font-size:2rem;font-weight:800;margin-bottom:0.5rem;}
+.founder-title{color:var(--cyan);font-size:1rem;font-weight:600;margin-bottom:1.5rem;}
+.founder-info p{color:var(--muted);font-size:0.975rem;line-height:1.8;margin-bottom:1rem;}
+.founder-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin-top:2rem;}
+.f-stat{text-align:center;padding:1.2rem;background:var(--card);border:1px solid var(--border);border-radius:14px;}
+.f-stat-num{font-family:'Syne',sans-serif;font-size:1.8rem;font-weight:800;background:linear-gradient(135deg,var(--blue),var(--cyan));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+.f-stat-label{color:var(--muted);font-size:0.75rem;margin-top:0.25rem;}
+
+/* VALUES */
+.values-section{background:var(--navy);}
+.values-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1.5rem;}
+.value-card{background:var(--card);border:1px solid var(--border);border-radius:20px;padding:2rem;transition:all 0.3s;text-align:center;}
+.value-card:hover{transform:translateY(-4px);border-color:rgba(0,212,255,0.3);}
+.value-icon{font-size:2.5rem;margin-bottom:1rem;}
+.value-card h3{font-size:1.1rem;font-weight:700;margin-bottom:0.75rem;}
+.value-card p{color:var(--muted);font-size:0.875rem;line-height:1.6;}
+
+/* MISSION/VISION */
+.mv-grid{display:grid;grid-template-columns:1fr 1fr;gap:2rem;}
+.mv-card{padding:3rem;border-radius:20px;position:relative;overflow:hidden;}
+.mv-card.mission{background:linear-gradient(135deg,rgba(0,136,255,0.15),rgba(0,212,255,0.08));border:1px solid rgba(0,212,255,0.3);}
+.mv-card.vision{background:linear-gradient(135deg,rgba(255,215,0,0.12),rgba(255,237,78,0.06));border:1px solid rgba(255,215,0,0.3);}
+.mv-label{font-size:0.8rem;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;margin-bottom:1rem;}
+.mv-card.mission .mv-label{color:var(--cyan);}
+.mv-card.vision .mv-label{color:var(--gold);}
+.mv-card h3{font-size:1.5rem;font-weight:800;margin-bottom:1rem;}
+.mv-card p{color:var(--muted);font-size:0.975rem;line-height:1.7;}
+
+/* CTA */
+.cta-bar{background:linear-gradient(135deg,rgba(0,136,255,0.15),rgba(0,212,255,0.08));border:1px solid rgba(0,212,255,0.3);border-radius:20px;padding:4rem 3rem;text-align:center;margin:0 auto;max-width:700px;}
+.cta-bar h2{font-size:2rem;font-weight:800;margin-bottom:1rem;}
+.cta-bar p{color:var(--muted);margin-bottom:2rem;}
+.btn-primary{background:linear-gradient(135deg,var(--blue),var(--cyan));color:#fff;padding:0.9rem 2rem;border-radius:100px;font-weight:700;font-size:1rem;text-decoration:none;display:inline-flex;align-items:center;gap:0.5rem;transition:all 0.3s;font-family:'Syne',sans-serif;}
+.btn-primary:hover{box-shadow:0 0 50px rgba(0,136,255,0.5);transform:translateY(-2px);}
+.btn-ghost{background:transparent;color:var(--cyan);border:1px solid rgba(0,212,255,0.4);padding:0.9rem 2rem;border-radius:100px;font-weight:700;font-size:1rem;text-decoration:none;display:inline-flex;align-items:center;gap:0.5rem;transition:all 0.3s;font-family:'Syne',sans-serif;margin-left:1rem;}
+.btn-ghost:hover{background:rgba(0,212,255,0.1);}
+
+.whatsapp-float{position:fixed;bottom:2rem;right:2rem;z-index:999;width:58px;height:58px;background:#25D366;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 8px 30px rgba(37,211,102,0.4);text-decoration:none;font-size:1.6rem;animation:float-wa 3s ease-in-out infinite;}
+@keyframes float-wa{0%,100%{transform:translateY(0);}50%{transform:translateY(-6px);}}
+footer{background:#0a1525;border-top:1px solid var(--border);padding:3rem 2rem;text-align:center;}
+footer p{color:var(--muted);font-size:0.85rem;}
+footer a{color:var(--cyan);text-decoration:none;}
+.fade-up{opacity:0;transform:translateY(40px);transition:opacity 0.8s ease,transform 0.8s ease;}
+.fade-up.visible{opacity:1;transform:translateY(0);}
+.stagger-1{transition-delay:0.1s;}.stagger-2{transition-delay:0.2s;}.stagger-3{transition-delay:0.3s;}
+@media(max-width:768px){
+  .story-grid,.founder-grid,.mv-grid{grid-template-columns:1fr;}
+  .nav-links{display:none;}
+  .founder-stats{grid-template-columns:1fr 1fr;}
+}
+</style>
+</head>
+<body>
+<nav>
+  <a href="../index.html" class="nav-logo">ACE DIGITALS <span>GLOBAL</span></a>
+  <ul class="nav-links">
+    <li><a href="../index.html">Home</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="services.html">Services</a></li>
+    <li><a href="portfolio.html">Portfolio</a></li>
+    <li><a href="store.html">Store</a></li>
+    <li><a href="blog.html">Blog</a></li>
+    <li><a href="contact.html" class="nav-cta">Get Started</a></li>
+  </ul>
+</nav>
+
+<div class="page-hero">
+  <span class="section-tag">🏢 Our Story</span>
+  <h1 class="page-title">We Are Ace Digitals <span class="highlight">Global</span></h1>
+  <p class="page-sub">From a one-man hustle in Lagos to a full-service digital agency serving clients across Africa and beyond. This is our story.</p>
+</div>
+
+<!-- STORY -->
+<section style="background:var(--navy);">
+  <div class="container">
+    <div class="story-grid">
+      <div class="story-text fade-up">
+        <span class="section-tag">📖 The Journey</span>
+        <h2>Built in the Streets of <span class="highlight">Lagos</span></h2>
+        <p>Ace Digitals Global started in 2018 as a solo freelance operation run by Uchenna Richard — a young digital entrepreneur from Lagos who saw a massive gap in quality digital services for African businesses.</p>
+        <p>What started as website design gigs quickly evolved into a full-stack digital agency offering websites, SEO, social media management, AI automation, and digital products — all designed specifically for the African market.</p>
+        <p>By 2022, the agency had rebranded from Ace Digitals Empire to Ace Digitals Global — reflecting a broader vision and an expanding client base spanning Nigeria, Ghana, Kenya, South Africa, and beyond.</p>
+        <p>Today, with 200+ websites built, 500+ businesses served, and automation systems running in 10+ countries, Ace Digitals Global is one of Africa's most results-driven digital agencies — and we're just getting started.</p>
+      </div>
+      <div class="story-visual fade-up stagger-1">
+        <div class="story-card">
+          <h3 style="font-size:1.1rem;margin-bottom:1.5rem;color:var(--cyan);">Our Growth Timeline</h3>
+          <div class="timeline">
+            <div class="timeline-item">
+              <div class="timeline-dot"></div>
+              <div class="timeline-year">2018</div>
+              <div class="timeline-desc">Founded as a freelance web design operation in Lagos by Uchenna Richard</div>
+            </div>
+            <div class="timeline-item">
+              <div class="timeline-dot"></div>
+              <div class="timeline-year">2019</div>
+              <div class="timeline-desc">Expanded into social media management and digital marketing services</div>
+            </div>
+            <div class="timeline-item">
+              <div class="timeline-dot"></div>
+              <div class="timeline-year">2020</div>
+              <div class="timeline-desc">Launched digital products store — first ebooks on social media growth</div>
+            </div>
+            <div class="timeline-item">
+              <div class="timeline-dot"></div>
+              <div class="timeline-year">2021</div>
+              <div class="timeline-desc">Rebranded to Ace Digitals Empire; hit 100+ websites milestone</div>
+            </div>
+            <div class="timeline-item">
+              <div class="timeline-dot"></div>
+              <div class="timeline-year">2022</div>
+              <div class="timeline-desc">Introduced AI automation services and expanded to 5+ African countries</div>
+            </div>
+            <div class="timeline-item">
+              <div class="timeline-dot"></div>
+              <div class="timeline-year">2023</div>
+              <div class="timeline-desc">Rebranded to Ace Digitals Global — launched SaaS development division</div>
+            </div>
+            <div class="timeline-item">
+              <div class="timeline-dot" style="background:var(--gold);"></div>
+              <div class="timeline-year" style="color:var(--gold);">2025</div>
+              <div class="timeline-desc" style="color:var(--text);font-weight:600;">200+ websites, 500+ clients, 10+ countries. Still growing.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOUNDER -->
+<section class="founder-section">
+  <div class="container">
+    <div class="founder-grid">
+      <div class="founder-img-box fade-up">
+        👤
+        <div style="position:absolute;bottom:1rem;left:50%;transform:translateX(-50%);background:rgba(0,136,255,0.9);padding:0.5rem 1rem;border-radius:100px;font-size:0.8rem;font-weight:700;white-space:nowrap;">Founder & CEO</div>
+      </div>
+      <div class="founder-info fade-up stagger-1">
+        <span class="section-tag">👤 Leadership</span>
+        <h2>Uchenna Richard</h2>
+        <div class="founder-title">Founder & CEO, Ace Digitals Global</div>
+        <p>Uchenna Richard is a Lagos-based digital entrepreneur, WordPress developer, content strategist, and AI automation expert who founded Ace Digitals Global in 2018 with a simple mission: help African businesses win online.</p>
+        <p>With over 7 years of hands-on experience in digital marketing, web development, and automation systems, Uchenna has become one of Nigeria's most recognized voices in the digital space — known on social media as <strong style="color:var(--cyan);">@DigitalUche</strong>.</p>
+        <p>His approach combines deep technical expertise with strategic marketing instincts — meaning clients don't just get beautiful websites, they get digital systems that actually generate leads and revenue.</p>
+        <div class="founder-stats">
+          <div class="f-stat">
+            <div class="f-stat-num">7+</div>
+            <div class="f-stat-label">Years Experience</div>
+          </div>
+          <div class="f-stat">
+            <div class="f-stat-num">200+</div>
+            <div class="f-stat-label">Projects Completed</div>
+          </div>
+          <div class="f-stat">
+            <div class="f-stat-num">10+</div>
+            <div class="f-stat-label">Countries Served</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MISSION & VISION -->
+<section style="background:var(--navy);">
+  <div class="container">
+    <div class="section-header fade-up">
+      <span class="section-tag">🎯 Purpose</span>
+      <h2 class="section-title">Our Mission & <span class="highlight">Vision</span></h2>
+    </div>
+    <div class="mv-grid fade-up">
+      <div class="mv-card mission">
+        <div class="mv-label">🎯 Our Mission</div>
+        <h3>Empower Every African Business to Win Online</h3>
+        <p>To democratize access to world-class digital services for African businesses — giving startups, creators, and enterprises the websites, systems, and strategies they need to compete globally and win locally.</p>
+      </div>
+      <div class="mv-card vision">
+        <div class="mv-label">🔭 Our Vision</div>
+        <h3>Africa's Most Trusted Digital Growth Partner</h3>
+        <p>To become the go-to digital agency for Africa's fastest-growing businesses — known globally for innovation, results, and our unwavering commitment to client success in the digital age.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- VALUES -->
+<section class="values-section">
+  <div class="container">
+    <div class="section-header fade-up">
+      <span class="section-tag">💎 What We Stand For</span>
+      <h2 class="section-title">Our Core <span class="highlight">Values</span></h2>
+    </div>
+    <div class="values-grid">
+      <div class="value-card fade-up">
+        <div class="value-icon">🏆</div>
+        <h3>Results Over Optics</h3>
+        <p>We don't chase vanity metrics. Every strategy, every campaign, every system we build is measured by one thing: real business results.</p>
+      </div>
+      <div class="value-card fade-up stagger-1">
+        <div class="value-icon">💡</div>
+        <h3>Innovation First</h3>
+        <p>We stay ahead of the curve — adopting AI, new platforms, and cutting-edge tools before they become mainstream so our clients always have the edge.</p>
+      </div>
+      <div class="value-card fade-up stagger-2">
+        <div class="value-icon">🤝</div>
+        <h3>Client Partnership</h3>
+        <p>We don't take projects — we take on partners. Your success is our success, and we go above and beyond to ensure every client wins big.</p>
+      </div>
+      <div class="value-card fade-up stagger-3">
+        <div class="value-icon">🌍</div>
+        <h3>Africa-First Thinking</h3>
+        <p>We understand the African market deeply — its nuances, its opportunities, and its unique digital landscape. We build for where you are.</p>
+      </div>
+      <div class="value-card fade-up">
+        <div class="value-icon">⚡</div>
+        <h3>Speed & Efficiency</h3>
+        <p>In the digital world, speed wins. We move fast, deliver fast, and build systems that run fast — because slow websites and slow strategies lose.</p>
+      </div>
+      <div class="value-card fade-up stagger-1">
+        <div class="value-icon">🔒</div>
+        <h3>Integrity Always</h3>
+        <p>We tell you the truth about what works and what doesn't. No fluff, no inflated promises — just honest, expert digital advice you can trust.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section style="background:linear-gradient(180deg,var(--navy),#1a2a3e);padding:6rem 2rem;">
+  <div class="cta-bar fade-up">
+    <h2>Let's Build Something <span class="highlight">Great Together</span></h2>
+    <p style="color:var(--muted);">Ready to take your digital presence to the next level? We'd love to be your growth partner.</p>
+    <a href="contact.html" class="btn-primary">Start a Project →</a>
+    <a href="services.html" class="btn-ghost">View Services</a>
+  </div>
+</section>
+
+<footer>
+  <p>© 2025 Ace Digitals Global | <a href="../index.html">Home</a> | <a href="contact.html">Contact</a> | Lekki, Lagos, Nigeria 🇳🇬</p>
+</footer>
+
+<a href="https://wa.me/2349079581937" class="whatsapp-float" target="_blank">💬</a>
+
+<script>
+const observer=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible');});},{threshold:0.1});
+document.querySelectorAll('.fade-up').forEach(el=>observer.observe(el));
+</script>
+</body>
+</html>

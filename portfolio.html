@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Portfolio | Ace Digitals Global — Our Best Work Across Africa</title>
+<meta name="description" content="Browse Ace Digitals Global's portfolio of websites, digital marketing campaigns, and AI automation systems built for businesses across Africa.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--navy:#0F1B2E;--blue:#0088FF;--cyan:#00D4FF;--gold:#FFD700;--gold2:#FFED4E;--bg:#1a2a3e;--text:#e8f0fe;--muted:#8899aa;--card:rgba(255,255,255,0.04);--border:rgba(0,136,255,0.2);}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{background:var(--navy);color:var(--text);font-family:'DM Sans',sans-serif;overflow-x:hidden;}
+h1,h2,h3,h4,h5{font-family:'Syne',sans-serif;}
+nav{position:fixed;top:0;left:0;right:0;z-index:1000;padding:1rem 2rem;display:flex;align-items:center;justify-content:space-between;background:rgba(15,27,46,0.92);backdrop-filter:blur(20px);border-bottom:1px solid var(--border);}
+.nav-logo{font-family:'Syne',sans-serif;font-weight:800;font-size:1.3rem;background:linear-gradient(135deg,var(--blue),var(--cyan));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;text-decoration:none;}
+.nav-logo span{color:var(--gold);-webkit-text-fill-color:var(--gold);}
+.nav-links{display:flex;gap:2rem;list-style:none;align-items:center;}
+.nav-links a{color:var(--muted);text-decoration:none;font-size:0.9rem;font-weight:500;transition:color 0.2s;}
+.nav-links a:hover{color:var(--cyan);}
+.nav-cta{background:linear-gradient(135deg,var(--blue),var(--cyan));color:#fff!important;padding:0.5rem 1.2rem;border-radius:100px;font-weight:600!important;}
+.page-hero{padding:10rem 2rem 6rem;background:linear-gradient(180deg,#0F1B2E,#1a2a3e);text-align:center;position:relative;overflow:hidden;}
+.page-hero::before{content:'';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:800px;height:400px;background:radial-gradient(ellipse,rgba(0,136,255,0.1) 0%,transparent 70%);}
+.section-tag{display:inline-block;color:var(--cyan);font-size:0.8rem;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;margin-bottom:1rem;}
+.page-title{font-size:clamp(2.5rem,5vw,4rem);font-weight:800;line-height:1.1;letter-spacing:-0.02em;margin-bottom:1rem;}
+.highlight{background:linear-gradient(135deg,var(--blue),var(--cyan));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+.page-sub{color:var(--muted);font-size:1.1rem;max-width:600px;margin:0 auto;line-height:1.7;}
+.portfolio-section{padding:5rem 2rem;background:var(--navy);}
+.container{max-width:1200px;margin:0 auto;}
+
+/* FILTER */
+.filter-bar{display:flex;gap:0.75rem;justify-content:center;flex-wrap:wrap;margin-bottom:3rem;}
+.filter-btn{background:var(--card);border:1px solid var(--border);color:var(--muted);padding:0.5rem 1.2rem;border-radius:100px;font-size:0.85rem;font-weight:600;cursor:pointer;transition:all 0.2s;font-family:'DM Sans',sans-serif;}
+.filter-btn.active,.filter-btn:hover{background:linear-gradient(135deg,var(--blue),var(--cyan));color:#fff;border-color:transparent;}
+
+/* PORTFOLIO GRID */
+.portfolio-masonry{display:grid;grid-template-columns:repeat(auto-fill,minmax(350px,1fr));gap:2rem;}
+.portfolio-item{background:var(--card);border:1px solid var(--border);border-radius:20px;overflow:hidden;transition:all 0.3s;cursor:pointer;}
+.portfolio-item:hover{transform:translateY(-8px);box-shadow:0 30px 60px rgba(0,0,0,0.4);border-color:rgba(0,212,255,0.4);}
+.portfolio-thumb{height:220px;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;}
+.portfolio-thumb .overlay{position:absolute;inset:0;background:linear-gradient(180deg,transparent 40%,rgba(15,27,46,0.9));opacity:0;transition:opacity 0.3s;}
+.portfolio-item:hover .overlay{opacity:1;}
+.portfolio-thumb .visit-btn{position:absolute;bottom:1rem;left:50%;transform:translateX(-50%) translateY(20px);background:linear-gradient(135deg,var(--blue),var(--cyan));color:#fff;padding:0.5rem 1.5rem;border-radius:100px;font-size:0.8rem;font-weight:700;text-decoration:none;opacity:0;transition:all 0.3s;white-space:nowrap;font-family:'Syne',sans-serif;}
+.portfolio-item:hover .visit-btn{opacity:1;transform:translateX(-50%) translateY(0);}
+.p-icon{font-size:3.5rem;position:relative;z-index:1;}
+.portfolio-body{padding:1.5rem;}
+.portfolio-tags{display:flex;gap:0.5rem;flex-wrap:wrap;margin-bottom:0.75rem;}
+.p-tag{display:inline-block;background:rgba(0,212,255,0.1);color:var(--cyan);font-size:0.7rem;font-weight:700;padding:0.2rem 0.6rem;border-radius:100px;border:1px solid rgba(0,212,255,0.2);}
+.portfolio-body h3{font-size:1.15rem;font-weight:700;margin-bottom:0.4rem;color:#fff;}
+.portfolio-url-link{color:var(--blue);font-size:0.8rem;text-decoration:none;display:block;margin-bottom:0.75rem;}
+.portfolio-url-link:hover{color:var(--cyan);}
+.portfolio-body p{color:var(--muted);font-size:0.875rem;line-height:1.6;margin-bottom:1rem;}
+.case-study{border-top:1px solid var(--border);padding-top:1rem;margin-top:0.5rem;}
+.cs-row{display:flex;justify-content:space-between;align-items:center;padding:0.4rem 0;font-size:0.8rem;}
+.cs-label{color:var(--muted);}
+.cs-val{color:var(--cyan);font-weight:600;}
+
+/* COLORS */
+.c1{background:linear-gradient(135deg,#0a1a3e,#0088FF);}
+.c2{background:linear-gradient(135deg,#1a0a2e,#8B5CF6);}
+.c3{background:linear-gradient(135deg,#0a2a1e,#10B981);}
+.c4{background:linear-gradient(135deg,#2a1a0a,#F59E0B);}
+.c5{background:linear-gradient(135deg,#2a0a0a,#EF4444);}
+.c6{background:linear-gradient(135deg,#0a2a2a,#00D4FF);}
+.c7{background:linear-gradient(135deg,#1a1a0a,#FFD700);}
+.c8{background:linear-gradient(135deg,#1a0a1a,#EC4899);}
+.c9{background:linear-gradient(135deg,#0a1a2a,#3B82F6);}
+.c10{background:linear-gradient(135deg,#0a2a0a,#22C55E);}
+.c11{background:linear-gradient(135deg,#1a2a0a,#84CC16);}
+
+.btn-primary{background:linear-gradient(135deg,var(--blue),var(--cyan));color:#fff;padding:0.9rem 2rem;border-radius:100px;font-weight:700;font-size:1rem;text-decoration:none;display:inline-flex;align-items:center;gap:0.5rem;transition:all 0.3s;font-family:'Syne',sans-serif;}
+.btn-primary:hover{box-shadow:0 0 50px rgba(0,136,255,0.5);transform:translateY(-2px);}
+.whatsapp-float{position:fixed;bottom:2rem;right:2rem;z-index:999;width:58px;height:58px;background:#25D366;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 8px 30px rgba(37,211,102,0.4);text-decoration:none;font-size:1.6rem;animation:float-wa 3s ease-in-out infinite;}
+@keyframes float-wa{0%,100%{transform:translateY(0);}50%{transform:translateY(-6px);}}
+footer{background:#0a1525;border-top:1px solid var(--border);padding:3rem 2rem;text-align:center;}
+footer p{color:var(--muted);font-size:0.85rem;}
+footer a{color:var(--cyan);text-decoration:none;}
+.fade-up{opacity:0;transform:translateY(40px);transition:opacity 0.8s ease,transform 0.8s ease;}
+.fade-up.visible{opacity:1;transform:translateY(0);}
+@media(max-width:768px){.nav-links{display:none;}.portfolio-masonry{grid-template-columns:1fr;}}
+</style>
+</head>
+<body>
+<nav>
+  <a href="../index.html" class="nav-logo">ACE DIGITALS <span>GLOBAL</span></a>
+  <ul class="nav-links">
+    <li><a href="../index.html">Home</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="services.html">Services</a></li>
+    <li><a href="portfolio.html">Portfolio</a></li>
+    <li><a href="store.html">Store</a></li>
+    <li><a href="blog.html">Blog</a></li>
+    <li><a href="contact.html" class="nav-cta">Get Started</a></li>
+  </ul>
+</nav>
+
+<div class="page-hero">
+  <span class="section-tag">🏆 Our Work</span>
+  <h1 class="page-title">Projects That <span class="highlight">Prove Results</span></h1>
+  <p class="page-sub">Real clients. Real websites. Real impact. Every project is a partnership built on strategy, creativity, and measurable outcomes.</p>
+</div>
+
+<section class="portfolio-section">
+  <div class="container">
+    <div class="filter-bar">
+      <button class="filter-btn active" onclick="filterProjects('all',this)">All Projects</button>
+      <button class="filter-btn" onclick="filterProjects('web',this)">Websites</button>
+      <button class="filter-btn" onclick="filterProjects('ecom',this)">E-Commerce</button>
+      <button class="filter-btn" onclick="filterProjects('hospitality',this)">Hospitality</button>
+      <button class="filter-btn" onclick="filterProjects('realestate',this)">Real Estate</button>
+      <button class="filter-btn" onclick="filterProjects('agency',this)">Agency</button>
+    </div>
+
+    <div class="portfolio-masonry" id="portfolioGrid">
+
+      <div class="portfolio-item fade-up" data-cat="web ecom">
+        <div class="portfolio-thumb c1">
+          <div class="p-icon">❄️</div>
+          <div class="overlay"></div>
+          <a href="https://primecooltech.ng" target="_blank" class="visit-btn">Visit Site →</a>
+        </div>
+        <div class="portfolio-body">
+          <div class="portfolio-tags"><span class="p-tag">WordPress</span><span class="p-tag">E-Commerce</span><span class="p-tag">SEO</span></div>
+          <h3>Prime Cool Tech</h3>
+          <a href="https://primecooltech.ng" target="_blank" class="portfolio-url-link">primecooltech.ng ↗</a>
+          <p>Full e-commerce website for a Lagos-based cooling technology company. Features product catalog, online booking, WhatsApp integration, and local SEO optimization.</p>
+          <div class="case-study">
+            <div class="cs-row"><span class="cs-label">Challenge</span><span class="cs-val">Zero online presence</span></div>
+            <div class="cs-row"><span class="cs-label">Solution</span><span class="cs-val">WordPress + WooCommerce</span></div>
+            <div class="cs-row"><span class="cs-label">Result</span><span class="cs-val">+240% organic traffic</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="portfolio-item fade-up stagger-1" data-cat="hospitality web">
+        <div class="portfolio-thumb c2">
+          <div class="p-icon">🏨</div>
+          <div class="overlay"></div>
+          <a href="https://villapalazzohotel.ng" target="_blank" class="visit-btn">Visit Site →</a>
+        </div>
+        <div class="portfolio-body">
+          <div class="portfolio-tags"><span class="p-tag">WordPress</span><span class="p-tag">Hospitality</span><span class="p-tag">Booking</span></div>
+          <h3>Villa Palazzo Hotel</h3>
+          <a href="https://villapalazzohotel.ng" target="_blank" class="portfolio-url-link">villapalazzohotel.ng ↗</a>
+          <p>Premium luxury hotel website with integrated room booking system, gallery showcase, and reservation management. Designed for maximum bookings and brand prestige.</p>
+          <div class="case-study">
+            <div class="cs-row"><span class="cs-label">Challenge</span><span class="cs-val">Outdated offline booking process</span></div>
+            <div class="cs-row"><span class="cs-label">Solution</span><span class="cs-val">Custom booking integration</span></div>
+            <div class="cs-row"><span class="cs-label">Result</span><span class="cs-val">50+ online bookings/month</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="portfolio-item fade-up stagger-2" data-cat="hospitality web">
+        <div class="portfolio-thumb c3">
+          <div class="p-icon">🛏️</div>
+          <div class="overlay"></div>
+          <a href="https://ontariosuites.ng" target="_blank" class="visit-btn">Visit Site →</a>
+        </div>
+        <div class="portfolio-body">
+          <div class="portfolio-tags"><span class="p-tag">WordPress</span><span class="p-tag">Hotel</span><span class="p-tag">Booking</span></div>
+          <h3>Ontario Suites</h3>
+          <a href="https://ontariosuites.ng" target="_blank" class="portfolio-url-link">ontariosuites.ng ↗</a>
+          <p>Elegant suites website with room gallery, amenities showcase, and direct booking functionality. Mobile-optimized for guests booking on-the-go.</p>
+          <div class="case-study">
+            <div class="cs-row"><span class="cs-label">Challenge</span><span class="cs-val">No direct booking channel</span></div>
+            <div class="cs-row"><span class="cs-label">Solution</span><span class="cs-val">Direct booking website</span></div>
+            <div class="cs-row"><span class="cs-label">Result</span><span class="cs-val">₦200K+ direct bookings/mo</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="portfolio-item fade-up" data-cat="ecom web">
+        <div class="portfolio-thumb c4">
+          <div class="p-icon">🎨</div>
+          <div class="overlay"></div>
+          <a href="https://colanncreations.com" target="_blank" class="visit-btn">Visit Site →</a>
+        </div>
+        <div class="portfolio-body">
+          <div class="portfolio-tags"><span class="p-tag">WordPress</span><span class="p-tag">Creative</span><span class="p-tag">E-Commerce</span></div>
+          <h3>Colann Creations</h3>
+          <a href="https://colanncreations.com" target="_blank" class="portfolio-url-link">colanncreations.com ↗</a>
+          <p>Creative brand e-commerce website showcasing and selling handmade products with seamless checkout experience and brand story integration.</p>
+          <div class="case-study">
+            <div class="cs-row"><span class="cs-label">Challenge</span><span class="cs-val">Instagram-only sales</span></div>
+            <div class="cs-row"><span class="cs-label">Solution</span><span class="cs-val">Full online store</span></div>
+            <div class="cs-row"><span class="cs-label">Result</span><span class="cs-val">3x monthly sales revenue</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="portfolio-item fade-up stagger-1" data-cat="web">
+        <div class="portfolio-thumb c5">
+          <div class="p-icon">🏗️</div>
+          <div class="overlay"></div>
+          <a href="https://waltbuiltmoore.com.ng" target="_blank" class="visit-btn">Visit Site →</a>
+        </div>
+        <div class="portfolio-body">
+          <div class="portfolio-tags"><span class="p-tag">WordPress</span><span class="p-tag">Construction</span><span class="p-tag">Corporate</span></div>
+          <h3>Walt Built Moore</h3>
+          <a href="https://waltbuiltmoore.com.ng" target="_blank" class="portfolio-url-link">waltbuiltmoore.com.ng ↗</a>
+          <p>Corporate website for a construction and building company with project portfolio, service offerings, and client testimonials.</p>
+          <div class="case-study">
+            <div class="cs-row"><span class="cs-label">Challenge</span><span class="cs-val">No digital credibility</span></div>
+            <div class="cs-row"><span class="cs-label">Solution</span><span class="cs-val">Professional corporate site</span></div>
+            <div class="cs-row"><span class="cs-label">Result</span><span class="cs-val">10+ new project inquiries</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="portfolio-item fade-up stagger-2" data-cat="realestate web">
+        <div class="portfolio-thumb c6">
+          <div class="p-icon">🏢</div>
+          <div class="overlay"></div>
+          <a href="https://straddlepartners.com.ng" target="_blank" class="visit-btn">Visit Site →</a>
+        </div>
+        <div class="portfolio-body">
+          <div class="portfolio-tags"><span class="p-tag">WordPress</span><span class="p-tag">Corporate</span><span class="p-tag">Consulting</span></div>
+          <h3>Straddle Partners</h3>
+          <a href="https://straddlepartners.com.ng" target="_blank" class="portfolio-url-link">straddlepartners.com.ng ↗</a>
+          <p>Premium corporate identity website for a Lagos-based business and property consulting firm with client portal and service pages.</p>
+          <div class="case-study">
+            <div class="cs-row"><span class="cs-label">Challenge</span><span class="cs-val">Weak online positioning</span></div>
+            <div class="cs-row"><span class="cs-label">Solution</span><span class="cs-val">Premium brand website</span></div>
+            <div class="cs-row"><span class="cs-label">Result</span><span class="cs-val">Enterprise client inquiries</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="portfolio-item fade-up" data-cat="realestate web">
+        <div class="portfolio-thumb c7">
+          <div class="p-icon">🏠</div>
+          <div class="overlay"></div>
+          <a href="https://straddlehomesandproperties.com" target="_blank" class="visit-btn">Visit Site →</a>
+        </div>
+        <div class="portfolio-body">
+          <div class="portfolio-tags"><span class="p-tag">WordPress</span><span class="p-tag">Real Estate</span><span class="p-tag">Property Listings</span></div>
+          <h3>Straddle Homes & Properties</h3>
+          <a href="https://straddlehomesandproperties.com" target="_blank" class="portfolio-url-link">straddlehomesandproperties.com ↗</a>
+          <p>Full property listing website with advanced search filters, virtual tour integration, and automated property alert system for buyers.</p>
+          <div class="case-study">
+            <div class="cs-row"><span class="cs-label">Challenge</span><span class="cs-val">Manual property enquiries</span></div>
+            <div class="cs-row"><span class="cs-label">Solution</span><span class="cs-val">Automated listings platform</span></div>
+            <div class="cs-row"><span class="cs-label">Result</span><span class="cs-val">5x lead generation increase</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="portfolio-item fade-up stagger-1" data-cat="agency web">
+        <div class="portfolio-thumb c8">
+          <div class="p-icon">🚀</div>
+          <div class="overlay"></div>
+          <a href="https://acedigitalsempire.com.ng" target="_blank" class="visit-btn">Visit Site →</a>
+        </div>
+        <div class="portfolio-body">
+          <div class="portfolio-tags"><span class="p-tag">WordPress</span><span class="p-tag">Agency</span><span class="p-tag">SEO</span></div>
+          <h3>Ace Digitals Empire (.ng)</h3>
+          <a href="https://acedigitalsempire.com.ng" target="_blank" class="portfolio-url-link">acedigitalsempire.com.ng ↗</a>
+          <p>Nigeria domain version of the flagship Ace Digitals agency website optimized for Nigerian search results and local audiences.</p>
+          <div class="case-study">
+            <div class="cs-row"><span class="cs-label">Platform</span><span class="cs-val">WordPress + Elementor</span></div>
+            <div class="cs-row"><span class="cs-label">Focus</span><span class="cs-val">Local SEO domination</span></div>
+            <div class="cs-row"><span class="cs-label">Result</span><span class="cs-val">#1 for local keywords</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="portfolio-item fade-up stagger-2" data-cat="web">
+        <div class="portfolio-thumb c9">
+          <div class="p-icon">🚗</div>
+          <div class="overlay"></div>
+          <a href="https://skylineautogarage.com" target="_blank" class="visit-btn">Visit Site →</a>
+        </div>
+        <div class="portfolio-body">
+          <div class="portfolio-tags"><span class="p-tag">WordPress</span><span class="p-tag">Automotive</span><span class="p-tag">Local SEO</span></div>
+          <h3>Skyline Auto Garage</h3>
+          <a href="https://skylineautogarage.com" target="_blank" class="portfolio-url-link">skylineautogarage.com ↗</a>
+          <p>Auto repair and maintenance website with service booking, gallery, and Google My Business integration for local customer acquisition.</p>
+          <div class="case-study">
+            <div class="cs-row"><span class="cs-label">Challenge</span><span class="cs-val">Competing with large garages</span></div>
+            <div class="cs-row"><span class="cs-label">Solution</span><span class="cs-val">Website + GMB optimization</span></div>
+            <div class="cs-row"><span class="cs-label">Result</span><span class="cs-val">Ranked #1 locally in 60 days</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="portfolio-item fade-up" data-cat="realestate web">
+        <div class="portfolio-thumb c10">
+          <div class="p-icon">🏙️</div>
+          <div class="overlay"></div>
+          <a href="https://straddlepartners.acedigitalsempire.com" target="_blank" class="visit-btn">Visit Site →</a>
+        </div>
+        <div class="portfolio-body">
+          <div class="portfolio-tags"><span class="p-tag">WordPress</span><span class="p-tag">Subdomain</span><span class="p-tag">Real Estate</span></div>
+          <h3>Straddle Partners (Hosted)</h3>
+          <a href="https://straddlepartners.acedigitalsempire.com" target="_blank" class="portfolio-url-link">straddlepartners.acedigitalsempire.com ↗</a>
+          <p>Hosted version of Straddle Partners digital presence on Ace Digitals infrastructure — showcasing property listings and investment offerings.</p>
+          <div class="case-study">
+            <div class="cs-row"><span class="cs-label">Type</span><span class="cs-val">Managed hosting + dev</span></div>
+            <div class="cs-row"><span class="cs-label">Stack</span><span class="cs-val">WordPress Multisite</span></div>
+            <div class="cs-row"><span class="cs-label">Result</span><span class="cs-val">24/7 managed uptime</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="portfolio-item fade-up stagger-1" data-cat="agency web">
+        <div class="portfolio-thumb c11">
+          <div class="p-icon">💎</div>
+          <div class="overlay"></div>
+          <a href="https://acedigitalsempire.com" target="_blank" class="visit-btn">Visit Site →</a>
+        </div>
+        <div class="portfolio-body">
+          <div class="portfolio-tags"><span class="p-tag">WordPress</span><span class="p-tag">Agency</span><span class="p-tag">International</span></div>
+          <h3>Ace Digitals Empire (International)</h3>
+          <a href="https://acedigitalsempire.com" target="_blank" class="portfolio-url-link">acedigitalsempire.com ↗</a>
+          <p>International version of the flagship agency website with global SEO targeting, international payment options, and multi-currency pricing.</p>
+          <div class="case-study">
+            <div class="cs-row"><span class="cs-label">Target</span><span class="cs-val">Global audience</span></div>
+            <div class="cs-row"><span class="cs-label">Stack</span><span class="cs-val">WordPress + Advanced SEO</span></div>
+            <div class="cs-row"><span class="cs-label">Result</span><span class="cs-val">International clients acquired</span></div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div style="text-align:center;margin-top:4rem;padding-top:3rem;border-top:1px solid var(--border);">
+      <p style="color:var(--muted);margin-bottom:1.5rem;">Want results like these for your business?</p>
+      <a href="contact.html" class="btn-primary">Start Your Project Today →</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>© 2025 Ace Digitals Global | <a href="../index.html">Home</a> | <a href="contact.html">Contact</a> | Lekki, Lagos, Nigeria 🇳🇬</p>
+</footer>
+
+<a href="https://wa.me/2349079581937" class="whatsapp-float" target="_blank">💬</a>
+
+<script>
+function filterProjects(cat, btn){
+  document.querySelectorAll('.filter-btn').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+  document.querySelectorAll('.portfolio-item').forEach(item=>{
+    if(cat==='all'||item.dataset.cat.includes(cat)){item.style.display='block';}
+    else{item.style.display='none';}
+  });
+}
+const observer=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible');});},{threshold:0.05});
+document.querySelectorAll('.fade-up').forEach(el=>observer.observe(el));
+</script>
+</body>
+</html>

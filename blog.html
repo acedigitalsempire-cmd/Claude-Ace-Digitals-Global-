@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Blog | Ace Digitals Global — Digital Marketing, AI & Growth Strategies</title>
+<meta name="description" content="Expert digital marketing insights, AI automation guides, social media growth strategies, and local SEO tips from Ace Digitals Global — Nigeria's premier digital agency.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--navy:#0F1B2E;--blue:#0088FF;--cyan:#00D4FF;--gold:#FFD700;--gold2:#FFED4E;--bg:#1a2a3e;--text:#e8f0fe;--muted:#8899aa;--card:rgba(255,255,255,0.04);--border:rgba(0,136,255,0.2);}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{background:var(--navy);color:var(--text);font-family:'DM Sans',sans-serif;overflow-x:hidden;}
+h1,h2,h3,h4,h5{font-family:'Syne',sans-serif;}
+nav{position:fixed;top:0;left:0;right:0;z-index:1000;padding:1rem 2rem;display:flex;align-items:center;justify-content:space-between;background:rgba(15,27,46,0.92);backdrop-filter:blur(20px);border-bottom:1px solid var(--border);}
+.nav-logo{font-family:'Syne',sans-serif;font-weight:800;font-size:1.3rem;background:linear-gradient(135deg,var(--blue),var(--cyan));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;text-decoration:none;}
+.nav-logo span{color:var(--gold);-webkit-text-fill-color:var(--gold);}
+.nav-links{display:flex;gap:2rem;list-style:none;align-items:center;}
+.nav-links a{color:var(--muted);text-decoration:none;font-size:0.9rem;font-weight:500;transition:color 0.2s;}
+.nav-links a:hover{color:var(--cyan);}
+.nav-cta{background:linear-gradient(135deg,var(--blue),var(--cyan));color:#fff!important;padding:0.5rem 1.2rem;border-radius:100px;font-weight:600!important;}
+.page-hero{padding:10rem 2rem 6rem;background:linear-gradient(180deg,#0F1B2E,#1a2a3e);text-align:center;position:relative;overflow:hidden;}
+.page-hero::before{content:'';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:800px;height:400px;background:radial-gradient(ellipse,rgba(0,136,255,0.1) 0%,transparent 70%);}
+.section-tag{display:inline-block;color:var(--cyan);font-size:0.8rem;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;margin-bottom:1rem;}
+.page-title{font-size:clamp(2.5rem,5vw,4rem);font-weight:800;line-height:1.1;letter-spacing:-0.02em;margin-bottom:1rem;}
+.highlight{background:linear-gradient(135deg,var(--blue),var(--cyan));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+.page-sub{color:var(--muted);font-size:1.1rem;max-width:600px;margin:0 auto;line-height:1.7;}
+.blog-section{padding:5rem 2rem;background:var(--navy);}
+.container{max-width:1200px;margin:0 auto;}
+
+.filter-bar{display:flex;gap:0.75rem;justify-content:center;flex-wrap:wrap;margin-bottom:3rem;}
+.filter-btn{background:var(--card);border:1px solid var(--border);color:var(--muted);padding:0.5rem 1.2rem;border-radius:100px;font-size:0.85rem;font-weight:600;cursor:pointer;transition:all 0.2s;font-family:'DM Sans',sans-serif;}
+.filter-btn.active,.filter-btn:hover{background:linear-gradient(135deg,var(--blue),var(--cyan));color:#fff;border-color:transparent;}
+
+/* FEATURED */
+.blog-featured{background:var(--card);border:1px solid var(--border);border-radius:20px;overflow:hidden;margin-bottom:3rem;display:grid;grid-template-columns:1fr 1fr;transition:all 0.3s;}
+.blog-featured:hover{border-color:rgba(0,212,255,0.3);box-shadow:0 20px 60px rgba(0,0,0,0.3);}
+.featured-img{background:linear-gradient(135deg,rgba(0,136,255,0.3),rgba(0,212,255,0.1));display:flex;align-items:center;justify-content:center;font-size:5rem;min-height:300px;}
+.featured-body{padding:3rem;}
+.featured-tag{display:inline-block;color:var(--cyan);font-size:0.75rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:1rem;}
+.featured-body h2{font-size:1.6rem;font-weight:800;line-height:1.3;margin-bottom:1rem;}
+.featured-body p{color:var(--muted);font-size:0.95rem;line-height:1.7;margin-bottom:1.5rem;}
+.blog-meta{display:flex;gap:1rem;color:var(--muted);font-size:0.8rem;align-items:center;flex-wrap:wrap;}
+.read-link{color:var(--cyan);font-weight:700;text-decoration:none;display:inline-flex;align-items:center;gap:0.4rem;margin-top:1rem;transition:gap 0.2s;}
+.read-link:hover{gap:0.7rem;}
+
+/* BLOG GRID */
+.blog-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:2rem;}
+.blog-card{background:var(--card);border:1px solid var(--border);border-radius:20px;overflow:hidden;transition:all 0.3s;text-decoration:none;display:block;color:inherit;cursor:pointer;}
+.blog-card:hover{transform:translateY(-6px);border-color:rgba(0,212,255,0.3);box-shadow:0 20px 50px rgba(0,0,0,0.2);}
+.blog-img{height:170px;display:flex;align-items:center;justify-content:center;font-size:3rem;position:relative;}
+.blog-body{padding:1.5rem;}
+.blog-cat{display:inline-block;font-size:0.7rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:0.75rem;padding:0.2rem 0.6rem;border-radius:100px;}
+.cat-seo{background:rgba(0,212,255,0.1);color:var(--cyan);border:1px solid rgba(0,212,255,0.2);}
+.cat-ai{background:rgba(139,92,246,0.1);color:#8B5CF6;border:1px solid rgba(139,92,246,0.2);}
+.cat-social{background:rgba(236,72,153,0.1);color:#EC4899;border:1px solid rgba(236,72,153,0.2);}
+.cat-web{background:rgba(0,136,255,0.1);color:var(--blue);border:1px solid rgba(0,136,255,0.2);}
+.cat-marketing{background:rgba(245,158,11,0.1);color:#F59E0B;border:1px solid rgba(245,158,11,0.2);}
+.blog-body h3{font-size:1rem;font-weight:700;margin-bottom:0.5rem;color:#fff;line-height:1.4;}
+.blog-body p{color:var(--muted);font-size:0.8rem;line-height:1.6;margin-bottom:0.75rem;}
+.blog-footer{display:flex;align-items:center;justify-content:space-between;font-size:0.75rem;color:var(--muted);border-top:1px solid rgba(255,255,255,0.06);padding-top:0.75rem;margin-top:0.5rem;}
+.read-time{color:var(--cyan);}
+
+/* BLOG BG COLORS */
+.bb1{background:linear-gradient(135deg,rgba(0,136,255,0.2),rgba(0,212,255,0.05));}
+.bb2{background:linear-gradient(135deg,rgba(139,92,246,0.2),rgba(0,136,255,0.05));}
+.bb3{background:linear-gradient(135deg,rgba(236,72,153,0.2),rgba(139,92,246,0.05));}
+.bb4{background:linear-gradient(135deg,rgba(245,158,11,0.2),rgba(239,68,68,0.05));}
+.bb5{background:linear-gradient(135deg,rgba(16,185,129,0.2),rgba(0,212,255,0.05));}
+.bb6{background:linear-gradient(135deg,rgba(239,68,68,0.2),rgba(245,158,11,0.05));}
+
+.whatsapp-float{position:fixed;bottom:2rem;right:2rem;z-index:999;width:58px;height:58px;background:#25D366;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 8px 30px rgba(37,211,102,0.4);text-decoration:none;font-size:1.6rem;animation:float-wa 3s ease-in-out infinite;}
+@keyframes float-wa{0%,100%{transform:translateY(0);}50%{transform:translateY(-6px);}}
+footer{background:#0a1525;border-top:1px solid var(--border);padding:3rem 2rem;text-align:center;}
+footer p{color:var(--muted);font-size:0.85rem;}
+footer a{color:var(--cyan);text-decoration:none;}
+.fade-up{opacity:0;transform:translateY(40px);transition:opacity 0.8s ease,transform 0.8s ease;}
+.fade-up.visible{opacity:1;transform:translateY(0);}
+.stagger-1{transition-delay:0.1s;}.stagger-2{transition-delay:0.2s;}.stagger-3{transition-delay:0.3s;}
+@media(max-width:768px){.nav-links{display:none;}.blog-featured{grid-template-columns:1fr;}.featured-img{min-height:200px;}.blog-grid{grid-template-columns:1fr;}}
+</style>
+</head>
+<body>
+<nav>
+  <a href="../index.html" class="nav-logo">ACE DIGITALS <span>GLOBAL</span></a>
+  <ul class="nav-links">
+    <li><a href="../index.html">Home</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="services.html">Services</a></li>
+    <li><a href="portfolio.html">Portfolio</a></li>
+    <li><a href="store.html">Store</a></li>
+    <li><a href="blog.html">Blog</a></li>
+    <li><a href="contact.html" class="nav-cta">Get Started</a></li>
+  </ul>
+</nav>
+
+<div class="page-hero">
+  <span class="section-tag">✍️ The Blog</span>
+  <h1 class="page-title">The Digital Streets <span class="highlight">Blog</span></h1>
+  <p class="page-sub">Expert digital marketing strategies, AI insights, SEO playbooks, and growth tactics — straight from Lagos to the world.</p>
+</div>
+
+<section class="blog-section">
+  <div class="container">
+
+    <!-- FEATURED -->
+    <div class="blog-featured fade-up" id="seo">
+      <div class="featured-img">🔍</div>
+      <div class="featured-body">
+        <span class="featured-tag">⭐ FEATURED · LOCAL SEO</span>
+        <h2>How to Rank #1 on Google in Lagos: The Complete Local SEO Playbook for 2025</h2>
+        <p>A step-by-step guide to dominating Google search results for your local Nigerian business. From Google My Business optimization to local backlink building — everything you need to rank first.</p>
+        <div class="blog-meta"><span>📅 December 2024</span><span>⏱ 12 min read</span><span>👤 DigitalUche</span></div>
+        <a href="services.html#gmb" class="read-link">Read Article + Get GMB Help →</a>
+      </div>
+    </div>
+
+    <div class="filter-bar">
+      <button class="filter-btn active" onclick="filterBlogs('all',this)">All Posts</button>
+      <button class="filter-btn" onclick="filterBlogs('seo',this)">SEO</button>
+      <button class="filter-btn" onclick="filterBlogs('ai',this)">AI & Automation</button>
+      <button class="filter-btn" onclick="filterBlogs('social',this)">Social Media</button>
+      <button class="filter-btn" onclick="filterBlogs('web',this)">Web Development</button>
+      <button class="filter-btn" onclick="filterBlogs('marketing',this)">Marketing</button>
+    </div>
+
+    <div class="blog-grid" id="blogGrid">
+
+      <div class="blog-card fade-up" data-cat="ai">
+        <div class="blog-img bb2">🤖</div>
+        <div class="blog-body">
+          <span class="blog-cat cat-ai">AI & Automation</span>
+          <h3>5 AI Automation Tools Every Nigerian Business Needs in 2025</h3>
+          <p>Discover how African businesses are using AI to cut costs, scale faster, and beat the competition with free and affordable tools.</p>
+          <div class="blog-footer"><span>Nov 2024</span><span class="read-time">⏱ 10 min</span></div>
+        </div>
+      </div>
+
+      <div class="blog-card fade-up stagger-1" data-cat="social">
+        <div class="blog-img bb3">📱</div>
+        <div class="blog-body">
+          <span class="blog-cat cat-social">Social Media</span>
+          <h3>How to Grow Your Instagram from 0 to 10,000 Followers in 90 Days</h3>
+          <p>The exact organic strategy we used to grow multiple Nigerian brand accounts to five figures — without paid ads.</p>
+          <div class="blog-footer"><span>Oct 2024</span><span class="read-time">⏱ 12 min</span></div>
+        </div>
+      </div>
+
+      <div class="blog-card fade-up stagger-2" data-cat="web">
+        <div class="blog-img bb1">🌐</div>
+        <div class="blog-body">
+          <span class="blog-cat cat-web">Web Development</span>
+          <h3>Why Your Nigerian Business Website is Losing You Money (And How to Fix It)</h3>
+          <p>7 critical website mistakes that are costing Nigerian businesses thousands in lost sales every month — and how to fix them fast.</p>
+          <div class="blog-footer"><span>Oct 2024</span><span class="read-time">⏱ 8 min</span></div>
+        </div>
+      </div>
+
+      <div class="blog-card fade-up" data-cat="marketing">
+        <div class="blog-img bb4">💰</div>
+        <div class="blog-body">
+          <span class="blog-cat cat-marketing">Digital Marketing</span>
+          <h3>How to Create a Social Media Content Calendar That Actually Gets Results</h3>
+          <p>Stop posting randomly and start posting strategically. This content calendar framework has driven 300% engagement increases.</p>
+          <div class="blog-footer"><span>Sep 2024</span><span class="read-time">⏱ 9 min</span></div>
+        </div>
+      </div>
+
+      <div class="blog-card fade-up stagger-1" data-cat="ai">
+        <div class="blog-img bb2">⚡</div>
+        <div class="blog-body">
+          <span class="blog-cat cat-ai">AI & Automation</span>
+          <h3>How to Build a WhatsApp Chatbot for Your Business in Under 2 Hours</h3>
+          <p>A beginner-friendly tutorial on setting up an AI-powered WhatsApp chatbot that handles customer inquiries and bookings automatically.</p>
+          <div class="blog-footer"><span>Sep 2024</span><span class="read-time">⏱ 11 min</span></div>
+        </div>
+      </div>
+
+      <div class="blog-card fade-up stagger-2" data-cat="seo">
+        <div class="blog-img bb5">📍</div>
+        <div class="blog-body">
+          <span class="blog-cat cat-seo">Local SEO</span>
+          <h3>Google My Business Optimization: The Complete 2025 Guide for Nigerian Businesses</h3>
+          <p>Everything you need to set up, optimize, and dominate Google Maps for your local Lagos or Nigerian business this year.</p>
+          <div class="blog-footer"><span>Aug 2024</span><span class="read-time">⏱ 14 min</span></div>
+        </div>
+      </div>
+
+      <div class="blog-card fade-up" data-cat="social">
+        <div class="blog-img bb3">🎵</div>
+        <div class="blog-body">
+          <span class="blog-cat cat-social">Social Media</span>
+          <h3>TikTok for Business: How Nigerian Brands Can Go Viral in 2025</h3>
+          <p>A practical guide to creating TikTok content that gets millions of views and drives real sales for Nigerian businesses and creators.</p>
+          <div class="blog-footer"><span>Aug 2024</span><span class="read-time">⏱ 10 min</span></div>
+        </div>
+      </div>
+
+      <div class="blog-card fade-up stagger-1" data-cat="web">
+        <div class="blog-img bb1">⚡</div>
+        <div class="blog-body">
+          <span class="blog-cat cat-web">Web Development</span>
+          <h3>How to Speed Up Your WordPress Website and Score 90+ on Google PageSpeed</h3>
+          <p>Page speed affects both your SEO ranking and conversion rate. Here's the exact optimization checklist we use for every client website.</p>
+          <div class="blog-footer"><span>Jul 2024</span><span class="read-time">⏱ 7 min</span></div>
+        </div>
+      </div>
+
+      <div class="blog-card fade-up stagger-2" data-cat="marketing">
+        <div class="blog-img bb4">📧</div>
+        <div class="blog-body">
+          <span class="blog-cat cat-marketing">Digital Marketing</span>
+          <h3>Email Marketing in Nigeria: How to Build a List of 10,000 Subscribers Fast</h3>
+          <p>Email marketing has the highest ROI of any digital channel. Here's how to build a profitable email list from scratch in the Nigerian market.</p>
+          <div class="blog-footer"><span>Jul 2024</span><span class="read-time">⏱ 9 min</span></div>
+        </div>
+      </div>
+
+      <div class="blog-card fade-up" data-cat="ai">
+        <div class="blog-img bb2">🧠</div>
+        <div class="blog-body">
+          <span class="blog-cat cat-ai">AI & Automation</span>
+          <h3>How to Use ChatGPT and AI to Write 30 Days of Content in 1 Hour</h3>
+          <p>The AI content workflow that saves our team 20+ hours every week — and how you can implement it for your brand today.</p>
+          <div class="blog-footer"><span>Jun 2024</span><span class="read-time">⏱ 8 min</span></div>
+        </div>
+      </div>
+
+      <div class="blog-card fade-up stagger-1" data-cat="social">
+        <div class="blog-img bb3">💸</div>
+        <div class="blog-body">
+          <span class="blog-cat cat-social">Social Media</span>
+          <h3>How Nigerian Creators Are Making ₦500K/Month from Social Media in 2025</h3>
+          <p>Real income breakdowns and monetization strategies from successful Nigerian content creators who are earning consistently online.</p>
+          <div class="blog-footer"><span>Jun 2024</span><span class="read-time">⏱ 13 min</span></div>
+        </div>
+      </div>
+
+      <div class="blog-card fade-up stagger-2" data-cat="seo">
+        <div class="blog-img bb5">🔗</div>
+        <div class="blog-body">
+          <span class="blog-cat cat-seo">SEO</span>
+          <h3>Link Building for Nigerian Businesses: How to Get High-Quality Backlinks</h3>
+          <p>Backlinks are the backbone of SEO. Here's how to build a strong backlink profile for Nigerian websites without paying for spam links.</p>
+          <div class="blog-footer"><span>May 2024</span><span class="read-time">⏱ 11 min</span></div>
+        </div>
+      </div>
+
+      <div class="blog-card fade-up" data-cat="web">
+        <div class="blog-img bb1">🛒</div>
+        <div class="blog-body">
+          <span class="blog-cat cat-web">Web Development</span>
+          <h3>How to Set Up an Online Store in Nigeria: The WooCommerce Complete Guide</h3>
+          <p>Step-by-step guide to launching a fully functional e-commerce store in Nigeria — with local payment gateways like Paystack and Flutterwave.</p>
+          <div class="blog-footer"><span>May 2024</span><span class="read-time">⏱ 15 min</span></div>
+        </div>
+      </div>
+
+      <div class="blog-card fade-up stagger-1" data-cat="marketing">
+        <div class="blog-img bb4">📊</div>
+        <div class="blog-body">
+          <span class="blog-cat cat-marketing">Digital Marketing</span>
+          <h3>Facebook Ads in Nigeria: How to Get Results With a ₦10,000 Budget</h3>
+          <p>You don't need a massive budget to run profitable Facebook ads. Here's how to stretch ₦10,000 into real business results.</p>
+          <div class="blog-footer"><span>Apr 2024</span><span class="read-time">⏱ 10 min</span></div>
+        </div>
+      </div>
+
+      <div class="blog-card fade-up stagger-2" data-cat="ai">
+        <div class="blog-img bb2">🔄</div>
+        <div class="blog-body">
+          <span class="blog-cat cat-ai">AI & Automation</span>
+          <h3>Setting Up a CRM Automation System for Your Small Business (Step-by-Step)</h3>
+          <p>How to use free and affordable CRM tools to automate your lead follow-up and convert more prospects into paying customers.</p>
+          <div class="blog-footer"><span>Apr 2024</span><span class="read-time">⏱ 12 min</span></div>
+        </div>
+      </div>
+
+      <div class="blog-card fade-up" data-cat="social">
+        <div class="blog-img bb3">📸</div>
+        <div class="blog-body">
+          <span class="blog-cat cat-social">Social Media</span>
+          <h3>The Ultimate Guide to Instagram Reels for Nigerian Brands in 2025</h3>
+          <p>Reels is Instagram's most powerful growth tool right now. Here's how Nigerian brands can leverage it for maximum reach and engagement.</p>
+          <div class="blog-footer"><span>Mar 2024</span><span class="read-time">⏱ 9 min</span></div>
+        </div>
+      </div>
+
+      <div class="blog-card fade-up stagger-1" data-cat="seo">
+        <div class="blog-img bb5">📝</div>
+        <div class="blog-body">
+          <span class="blog-cat cat-seo">SEO</span>
+          <h3>How to Write SEO Blog Posts That Rank on Google (The 2025 Framework)</h3>
+          <p>The exact SEO content framework we use to consistently rank blog posts on page one of Google — and how you can apply it to your business.</p>
+          <div class="blog-footer"><span>Mar 2024</span><span class="read-time">⏱ 10 min</span></div>
+        </div>
+      </div>
+
+      <div class="blog-card fade-up stagger-2" data-cat="marketing">
+        <div class="blog-img bb4">🎯</div>
+        <div class="blog-body">
+          <span class="blog-cat cat-marketing">Digital Marketing</span>
+          <h3>Digital Marketing Strategy for Startups in Nigeria: Where to Start</h3>
+          <p>A practical digital marketing roadmap for Nigerian startups — with limited budget, maximum impact, and a clear path to growth.</p>
+          <div class="blog-footer"><span>Feb 2024</span><span class="read-time">⏱ 11 min</span></div>
+        </div>
+      </div>
+
+      <div class="blog-card fade-up" data-cat="web">
+        <div class="blog-img bb1">🔒</div>
+        <div class="blog-body">
+          <span class="blog-cat cat-web">Web Development</span>
+          <h3>WordPress Security: How to Protect Your Nigerian Business Website from Hackers</h3>
+          <p>Cyber attacks on Nigerian websites are increasing. Here's the essential security checklist every WordPress site owner must implement.</p>
+          <div class="blog-footer"><span>Feb 2024</span><span class="read-time">⏱ 8 min</span></div>
+        </div>
+      </div>
+
+      <div class="blog-card fade-up stagger-1" data-cat="ai">
+        <div class="blog-img bb2">📱</div>
+        <div class="blog-body">
+          <span class="blog-cat cat-ai">AI & Automation</span>
+          <h3>How to Automate Your Social Media Posting and Save 10 Hours Per Week</h3>
+          <p>The social media scheduling and automation tools and workflow that keeps our clients' pages active 24/7 — without constant manual effort.</p>
+          <div class="blog-footer"><span>Jan 2024</span><span class="read-time">⏱ 7 min</span></div>
+        </div>
+      </div>
+
+      <div class="blog-card fade-up stagger-2" data-cat="social">
+        <div class="blog-img bb3">🤝</div>
+        <div class="blog-body">
+          <span class="blog-cat cat-social">Social Media</span>
+          <h3>How to Use WhatsApp Business to Grow Your Customer Base in Nigeria</h3>
+          <p>WhatsApp is Nigeria's most-used communication platform. Here's how to turn WhatsApp Business into a full-scale marketing and sales channel.</p>
+          <div class="blog-footer"><span>Jan 2024</span><span class="read-time">⏱ 9 min</span></div>
+        </div>
+      </div>
+
+      <div class="blog-card fade-up" data-cat="seo">
+        <div class="blog-img bb5">🗺️</div>
+        <div class="blog-body">
+          <span class="blog-cat cat-seo">Local SEO</span>
+          <h3>How to Appear in "Near Me" Searches: Local SEO for Nigerian SMEs</h3>
+          <p>When customers search "restaurants near me" or "plumber near me" — you want to show up. Here's how to make that happen.</p>
+          <div class="blog-footer"><span>Dec 2023</span><span class="read-time">⏱ 8 min</span></div>
+        </div>
+      </div>
+
+      <div class="blog-card fade-up stagger-1" data-cat="marketing">
+        <div class="blog-img bb4">💎</div>
+        <div class="blog-body">
+          <span class="blog-cat cat-marketing">Digital Marketing</span>
+          <h3>How to Create and Sell Digital Products Online in Nigeria in 2025</h3>
+          <p>Turn your expertise into passive income. The complete guide to creating, pricing, and selling ebooks, courses, and templates to Nigerian audiences.</p>
+          <div class="blog-footer"><span>Dec 2023</span><span class="read-time">⏱ 13 min</span></div>
+        </div>
+      </div>
+
+      <div class="blog-card fade-up stagger-2" data-cat="web">
+        <div class="blog-img bb1">📐</div>
+        <div class="blog-body">
+          <span class="blog-cat cat-web">Web Development</span>
+          <h3>Landing Page Design That Converts: 10 Principles Every Business Should Know</h3>
+          <p>The design and copy principles that make landing pages convert visitors into customers — backed by real data from 200+ websites we've built.</p>
+          <div class="blog-footer"><span>Nov 2023</span><span class="read-time">⏱ 10 min</span></div>
+        </div>
+      </div>
+
+      <div class="blog-card fade-up" data-cat="ai">
+        <div class="blog-img bb2">🚀</div>
+        <div class="blog-body">
+          <span class="blog-cat cat-ai">AI & Automation</span>
+          <h3>The Future of Digital Marketing in Africa: AI, Automation, and What's Coming</h3>
+          <p>How AI is changing the digital marketing landscape across Africa — and how savvy Nigerian businesses can get ahead of the curve right now.</p>
+          <div class="blog-footer"><span>Nov 2023</span><span class="read-time">⏱ 11 min</span></div>
+        </div>
+      </div>
+
+    </div>
+
+    <div style="text-align:center;margin-top:4rem;padding:3rem;background:var(--card);border:1px solid var(--border);border-radius:20px;">
+      <h3 style="margin-bottom:0.75rem;">Want More Expert Tips in Your Inbox?</h3>
+      <p style="color:var(--muted);margin-bottom:1.5rem;">Join 2,000+ Nigerian business owners getting free digital marketing insights every week.</p>
+      <div style="display:flex;gap:0.75rem;max-width:400px;margin:0 auto;flex-wrap:wrap;justify-content:center;">
+        <input type="email" placeholder="Your email address" style="flex:1;min-width:200px;background:rgba(255,255,255,0.05);border:1px solid var(--border);color:#fff;padding:0.8rem 1rem;border-radius:100px;font-size:0.9rem;outline:none;font-family:'DM Sans',sans-serif;">
+        <button style="background:linear-gradient(135deg,var(--blue),var(--cyan));color:#fff;border:none;padding:0.8rem 1.5rem;border-radius:100px;font-weight:700;cursor:pointer;font-family:'Syne',sans-serif;">Subscribe</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>© 2025 Ace Digitals Global | <a href="../index.html">Home</a> | <a href="contact.html">Contact</a> | Lekki, Lagos, Nigeria 🇳🇬</p>
+</footer>
+
+<a href="https://wa.me/2349079581937" class="whatsapp-float" target="_blank">💬</a>
+
+<script>
+function filterBlogs(cat, btn){
+  document.querySelectorAll('.filter-btn').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+  document.querySelectorAll('.blog-card').forEach(card=>{
+    if(cat==='all'||card.dataset.cat===cat){card.style.display='block';}
+    else{card.style.display='none';}
+  });
+}
+const observer=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible');});},{threshold:0.05});
+document.querySelectorAll('.fade-up').forEach(el=>observer.observe(el));
+</script>
+</body>
+</html>

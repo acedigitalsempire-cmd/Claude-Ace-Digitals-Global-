@@ -1,0 +1,786 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ace Digitals Global | We Run The Digital Streets</title>
+<meta name="description" content="Ace Digitals Global – Lagos-based digital agency helping brands, startups, and creators dominate the internet through powerful websites, AI automation, and high-growth marketing.">
+<meta property="og:title" content="Ace Digitals Global | We Run The Digital Streets">
+<meta property="og:description" content="Premium digital agency in Lagos. Websites, AI Automation, Social Media Marketing & More.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://acedigitalsempire.com">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+<style>
+  :root {
+    --navy: #0F1B2E;
+    --blue: #0088FF;
+    --cyan: #00D4FF;
+    --gold: #FFD700;
+    --gold2: #FFED4E;
+    --bg: #1a2a3e;
+    --text: #e8f0fe;
+    --muted: #8899aa;
+    --card: rgba(255,255,255,0.04);
+    --border: rgba(0,136,255,0.2);
+    --glow: 0 0 40px rgba(0,136,255,0.3);
+    --glow-gold: 0 0 30px rgba(255,215,0,0.3);
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{background:var(--navy);color:var(--text);font-family:'DM Sans',sans-serif;overflow-x:hidden;}
+  h1,h2,h3,h4,h5{font-family:'Syne',sans-serif;}
+  
+  /* NAV */
+  nav{position:fixed;top:0;left:0;right:0;z-index:1000;padding:1rem 2rem;display:flex;align-items:center;justify-content:space-between;transition:all 0.3s;backdrop-filter:blur(0px);}
+  nav.scrolled{background:rgba(15,27,46,0.92);backdrop-filter:blur(20px);border-bottom:1px solid var(--border);box-shadow:0 4px 30px rgba(0,0,0,0.3);}
+  .nav-logo{font-family:'Syne',sans-serif;font-weight:800;font-size:1.3rem;background:linear-gradient(135deg,var(--blue),var(--cyan));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;text-decoration:none;}
+  .nav-logo span{color:var(--gold);-webkit-text-fill-color:var(--gold);}
+  .nav-links{display:flex;gap:2rem;list-style:none;align-items:center;}
+  .nav-links a{color:var(--muted);text-decoration:none;font-size:0.9rem;font-weight:500;transition:color 0.2s;letter-spacing:0.03em;}
+  .nav-links a:hover{color:var(--cyan);}
+  .nav-cta{background:linear-gradient(135deg,var(--blue),var(--cyan));color:#fff!important;padding:0.5rem 1.2rem;border-radius:100px;font-weight:600!important;transition:box-shadow 0.3s,transform 0.2s!important;}
+  .nav-cta:hover{box-shadow:var(--glow);transform:translateY(-1px)!important;}
+  .hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:5px;}
+  .hamburger span{display:block;width:24px;height:2px;background:var(--cyan);border-radius:2px;transition:all 0.3s;}
+  
+  /* HERO */
+  #particles-js{position:absolute;top:0;left:0;width:100%;height:100%;z-index:0;}
+  .hero{position:relative;min-height:100vh;display:flex;align-items:center;justify-content:center;text-align:center;overflow:hidden;background:linear-gradient(180deg,#0F1B2E 0%,#1a2a3e 100%);}
+  .hero-content{position:relative;z-index:2;max-width:900px;padding:2rem;}
+  .hero-badge{display:inline-flex;align-items:center;gap:0.5rem;background:rgba(0,212,255,0.1);border:1px solid rgba(0,212,255,0.3);color:var(--cyan);padding:0.4rem 1rem;border-radius:100px;font-size:0.8rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:1.5rem;animation:pulse-border 2s ease infinite;}
+  @keyframes pulse-border{0%,100%{border-color:rgba(0,212,255,0.3);}50%{border-color:rgba(0,212,255,0.8);}}
+  .hero-badge .dot{width:6px;height:6px;background:var(--cyan);border-radius:50%;animation:blink 1.5s ease infinite;}
+  @keyframes blink{0%,100%{opacity:1;}50%{opacity:0.3;}}
+  .hero h1{font-size:clamp(2.8rem,7vw,6rem);font-weight:800;line-height:1.05;letter-spacing:-0.02em;margin-bottom:1.5rem;}
+  .hero h1 .line1{display:block;background:linear-gradient(135deg,#fff 30%,var(--cyan));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+  .hero h1 .line2{display:block;background:linear-gradient(135deg,var(--blue),var(--cyan),var(--gold));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;text-shadow:none;}
+  .hero-sub{font-size:1.15rem;color:var(--muted);max-width:650px;margin:0 auto 2.5rem;line-height:1.7;font-weight:400;}
+  .hero-btns{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;}
+  .btn-primary{background:linear-gradient(135deg,var(--blue),var(--cyan));color:#fff;padding:0.9rem 2rem;border-radius:100px;font-weight:700;font-size:1rem;text-decoration:none;transition:all 0.3s;font-family:'Syne',sans-serif;letter-spacing:0.01em;border:none;cursor:pointer;display:inline-flex;align-items:center;gap:0.5rem;}
+  .btn-primary:hover{box-shadow:0 0 50px rgba(0,136,255,0.5);transform:translateY(-2px);}
+  .btn-whatsapp{background:rgba(37,211,102,0.15);color:#25D366;border:1px solid rgba(37,211,102,0.4);padding:0.9rem 2rem;border-radius:100px;font-weight:700;font-size:1rem;text-decoration:none;transition:all 0.3s;font-family:'Syne',sans-serif;display:inline-flex;align-items:center;gap:0.5rem;}
+  .btn-whatsapp:hover{background:rgba(37,211,102,0.25);box-shadow:0 0 30px rgba(37,211,102,0.2);transform:translateY(-2px);}
+  .hero-scroll{position:absolute;bottom:2rem;left:50%;transform:translateX(-50%);z-index:2;display:flex;flex-direction:column;align-items:center;gap:0.5rem;color:var(--muted);font-size:0.75rem;letter-spacing:0.1em;text-transform:uppercase;}
+  .scroll-line{width:1px;height:40px;background:linear-gradient(180deg,var(--cyan),transparent);animation:scroll-anim 2s ease infinite;}
+  @keyframes scroll-anim{0%{transform:scaleY(0);transform-origin:top;}50%{transform:scaleY(1);transform-origin:top;}51%{transform:scaleY(1);transform-origin:bottom;}100%{transform:scaleY(0);transform-origin:bottom;}}
+
+  /* STATS */
+  .stats-section{padding:5rem 2rem;background:linear-gradient(180deg,#1a2a3e,var(--navy));position:relative;}
+  .stats-grid{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:2rem;}
+  .stat-card{text-align:center;padding:2.5rem 2rem;background:var(--card);border:1px solid var(--border);border-radius:16px;position:relative;overflow:hidden;transition:all 0.3s;}
+  .stat-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--blue),var(--cyan));}
+  .stat-card:hover{transform:translateY(-4px);box-shadow:var(--glow);border-color:rgba(0,136,255,0.4);}
+  .stat-num{font-family:'Syne',sans-serif;font-size:3rem;font-weight:800;background:linear-gradient(135deg,var(--blue),var(--cyan));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+  .stat-label{color:var(--muted);font-size:0.95rem;margin-top:0.5rem;font-weight:500;}
+
+  /* SECTION HEADERS */
+  .section-header{text-align:center;margin-bottom:4rem;}
+  .section-tag{display:inline-block;color:var(--cyan);font-size:0.8rem;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;margin-bottom:1rem;}
+  .section-title{font-size:clamp(2rem,4vw,3rem);font-weight:800;line-height:1.15;letter-spacing:-0.02em;}
+  .section-title .highlight{background:linear-gradient(135deg,var(--blue),var(--cyan));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+  .section-sub{color:var(--muted);font-size:1.05rem;max-width:600px;margin:1rem auto 0;line-height:1.7;}
+
+  /* SERVICES */
+  .services-section{padding:6rem 2rem;background:var(--navy);}
+  .services-grid{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:1.5rem;}
+  .service-card{background:var(--card);border:1px solid var(--border);border-radius:20px;padding:2.5rem;transition:all 0.3s;position:relative;overflow:hidden;text-decoration:none;display:block;color:inherit;}
+  .service-card::after{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(0,136,255,0.05),rgba(0,212,255,0.05));opacity:0;transition:opacity 0.3s;}
+  .service-card:hover{transform:translateY(-6px);border-color:rgba(0,212,255,0.4);box-shadow:0 20px 60px rgba(0,136,255,0.15);}
+  .service-card:hover::after{opacity:1;}
+  .service-icon{width:52px;height:52px;background:linear-gradient(135deg,rgba(0,136,255,0.2),rgba(0,212,255,0.2));border:1px solid rgba(0,212,255,0.3);border-radius:14px;display:flex;align-items:center;justify-content:center;margin-bottom:1.5rem;font-size:1.5rem;}
+  .service-card h3{font-size:1.2rem;font-weight:700;margin-bottom:0.75rem;color:#fff;}
+  .service-card p{color:var(--muted);font-size:0.9rem;line-height:1.6;}
+  .service-arrow{display:inline-flex;align-items:center;gap:0.4rem;color:var(--cyan);font-size:0.85rem;font-weight:600;margin-top:1.2rem;transition:gap 0.2s;}
+  .service-card:hover .service-arrow{gap:0.7rem;}
+
+  /* PORTFOLIO */
+  .portfolio-section{padding:6rem 2rem;background:linear-gradient(180deg,var(--navy),#1a2a3e);}
+  .portfolio-grid{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(340px,1fr));gap:1.5rem;}
+  .portfolio-card{background:var(--card);border:1px solid var(--border);border-radius:20px;overflow:hidden;transition:all 0.3s;}
+  .portfolio-card:hover{transform:translateY(-6px);box-shadow:0 30px 60px rgba(0,0,0,0.3);border-color:rgba(0,212,255,0.3);}
+  .portfolio-img{height:200px;background:linear-gradient(135deg,rgba(0,136,255,0.2),rgba(0,212,255,0.1));display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;}
+  .portfolio-img-bg{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:3rem;opacity:0.3;}
+  .portfolio-url{font-family:'Syne',sans-serif;font-weight:700;font-size:1rem;color:var(--cyan);z-index:1;text-align:center;padding:1rem;}
+  .portfolio-body{padding:1.5rem;}
+  .portfolio-tag{display:inline-block;background:rgba(0,212,255,0.1);color:var(--cyan);font-size:0.75rem;font-weight:600;padding:0.25rem 0.75rem;border-radius:100px;border:1px solid rgba(0,212,255,0.2);margin-bottom:0.75rem;}
+  .portfolio-body h3{font-size:1.1rem;font-weight:700;margin-bottom:0.5rem;}
+  .portfolio-body p{color:var(--muted);font-size:0.875rem;line-height:1.6;}
+
+  /* AI SECTION */
+  .ai-section{padding:6rem 2rem;background:var(--navy);position:relative;overflow:hidden;}
+  .ai-bg-glow{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:600px;height:600px;background:radial-gradient(circle,rgba(0,136,255,0.08) 0%,transparent 70%);pointer-events:none;}
+  .ai-inner{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center;}
+  .ai-features{display:flex;flex-direction:column;gap:1.2rem;margin-top:2rem;}
+  .ai-feature{display:flex;align-items:flex-start;gap:1rem;padding:1.2rem;background:var(--card);border:1px solid var(--border);border-radius:14px;transition:all 0.3s;}
+  .ai-feature:hover{border-color:rgba(0,212,255,0.3);background:rgba(0,136,255,0.06);}
+  .ai-feature-icon{font-size:1.5rem;flex-shrink:0;margin-top:2px;}
+  .ai-feature h4{font-size:1rem;font-weight:700;color:#fff;margin-bottom:0.3rem;}
+  .ai-feature p{color:var(--muted);font-size:0.875rem;line-height:1.5;}
+  .ai-visual{display:flex;align-items:center;justify-content:center;}
+  .ai-orb{width:350px;height:350px;border-radius:50%;background:radial-gradient(circle at 40% 40%,rgba(0,212,255,0.3),rgba(0,136,255,0.15),transparent 70%);border:1px solid rgba(0,212,255,0.2);position:relative;display:flex;align-items:center;justify-content:center;animation:orbit-pulse 4s ease-in-out infinite;}
+  @keyframes orbit-pulse{0%,100%{box-shadow:0 0 60px rgba(0,136,255,0.2);}50%{box-shadow:0 0 100px rgba(0,212,255,0.3);}}
+  .ai-orb-text{font-family:'Syne',sans-serif;font-size:1.1rem;font-weight:700;text-align:center;background:linear-gradient(135deg,var(--blue),var(--cyan));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+  .orbit-ring{position:absolute;border:1px solid rgba(0,212,255,0.15);border-radius:50%;animation:spin 12s linear infinite;}
+  .orbit-ring:nth-child(2){width:130%;height:130%;animation-duration:15s;animation-direction:reverse;}
+  .orbit-ring:nth-child(3){width:160%;height:160%;animation-duration:20s;}
+  @keyframes spin{from{transform:rotate(0deg);}to{transform:rotate(360deg);}}
+
+  /* TESTIMONIALS */
+  .testimonials-section{padding:6rem 2rem;background:linear-gradient(180deg,#1a2a3e,var(--navy));}
+  .testimonials-grid{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:1.5rem;}
+  .testimonial-card{background:var(--card);border:1px solid var(--border);border-radius:20px;padding:2rem;transition:all 0.3s;position:relative;}
+  .testimonial-card::before{content:'"';position:absolute;top:1rem;right:1.5rem;font-size:5rem;font-family:'Syne',sans-serif;color:rgba(0,212,255,0.1);line-height:1;}
+  .testimonial-card:hover{transform:translateY(-4px);border-color:rgba(0,212,255,0.3);}
+  .stars{color:var(--gold);font-size:1rem;margin-bottom:1rem;letter-spacing:2px;}
+  .testimonial-text{color:var(--muted);font-size:0.95rem;line-height:1.7;margin-bottom:1.5rem;font-style:italic;}
+  .testimonial-author{display:flex;align-items:center;gap:1rem;}
+  .author-avatar{width:44px;height:44px;border-radius:50%;background:linear-gradient(135deg,var(--blue),var(--cyan));display:flex;align-items:center;justify-content:center;font-family:'Syne',sans-serif;font-weight:700;font-size:1rem;color:#fff;flex-shrink:0;}
+  .author-name{font-weight:700;font-size:0.95rem;color:#fff;}
+  .author-role{color:var(--muted);font-size:0.8rem;}
+
+  /* PRODUCTS PREVIEW */
+  .products-section{padding:6rem 2rem;background:var(--navy);}
+  .products-grid{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1.5rem;margin-top:3rem;}
+  .product-card{background:var(--card);border:1px solid var(--border);border-radius:20px;overflow:hidden;transition:all 0.3s;}
+  .product-card:hover{transform:translateY(-6px);box-shadow:0 30px 60px rgba(0,0,0,0.3);}
+  .product-cover{height:160px;display:flex;align-items:center;justify-content:center;font-size:3rem;position:relative;overflow:hidden;}
+  .product-cover-1{background:linear-gradient(135deg,#0F3460,#0088FF);}
+  .product-cover-2{background:linear-gradient(135deg,#1B4332,#00D4FF);}
+  .product-cover-3{background:linear-gradient(135deg,#3D1A78,#FF6B6B);}
+  .product-cover-4{background:linear-gradient(135deg,#7C2D12,#FFD700);}
+  .product-body{padding:1.5rem;}
+  .product-badge{display:inline-block;background:rgba(255,215,0,0.15);color:var(--gold);font-size:0.75rem;font-weight:700;padding:0.2rem 0.6rem;border-radius:100px;border:1px solid rgba(255,215,0,0.3);margin-bottom:0.75rem;}
+  .product-body h3{font-size:1rem;font-weight:700;margin-bottom:0.5rem;color:#fff;}
+  .product-price{font-family:'Syne',sans-serif;font-weight:800;font-size:1.3rem;background:linear-gradient(135deg,var(--gold),var(--gold2));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin:0.75rem 0;}
+  .product-buy-btn{display:block;text-align:center;background:linear-gradient(135deg,var(--blue),var(--cyan));color:#fff;padding:0.6rem 1rem;border-radius:100px;font-weight:700;font-size:0.85rem;text-decoration:none;transition:all 0.3s;}
+  .product-buy-btn:hover{box-shadow:var(--glow);}
+
+  /* BLOG PREVIEW */
+  .blog-section{padding:6rem 2rem;background:linear-gradient(180deg,var(--navy),#1a2a3e);}
+  .blog-grid{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(340px,1fr));gap:1.5rem;}
+  .blog-card{background:var(--card);border:1px solid var(--border);border-radius:20px;overflow:hidden;transition:all 0.3s;text-decoration:none;display:block;color:inherit;}
+  .blog-card:hover{transform:translateY(-4px);border-color:rgba(0,212,255,0.3);box-shadow:0 20px 50px rgba(0,0,0,0.2);}
+  .blog-img{height:180px;display:flex;align-items:center;justify-content:center;font-size:3rem;position:relative;}
+  .blog-img-1{background:linear-gradient(135deg,rgba(0,136,255,0.3),rgba(0,212,255,0.1));}
+  .blog-img-2{background:linear-gradient(135deg,rgba(255,107,107,0.2),rgba(0,136,255,0.2));}
+  .blog-img-3{background:linear-gradient(135deg,rgba(255,215,0,0.2),rgba(0,136,255,0.15));}
+  .blog-body{padding:1.5rem;}
+  .blog-cat{display:inline-block;color:var(--cyan);font-size:0.75rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:0.75rem;}
+  .blog-body h3{font-size:1.05rem;font-weight:700;margin-bottom:0.5rem;color:#fff;line-height:1.4;}
+  .blog-body p{color:var(--muted);font-size:0.875rem;line-height:1.6;}
+  .blog-meta{display:flex;align-items:center;gap:1rem;margin-top:1rem;color:var(--muted);font-size:0.8rem;}
+
+  /* CTA SECTION */
+  .cta-section{padding:7rem 2rem;background:var(--navy);position:relative;overflow:hidden;}
+  .cta-bg{position:absolute;inset:0;background:radial-gradient(ellipse at center,rgba(0,136,255,0.12) 0%,transparent 70%);}
+  .cta-inner{max-width:800px;margin:0 auto;text-align:center;position:relative;z-index:1;}
+  .cta-inner h2{font-size:clamp(2rem,4vw,3.5rem);font-weight:800;line-height:1.1;margin-bottom:1.5rem;}
+  .cta-inner p{color:var(--muted);font-size:1.1rem;line-height:1.7;margin-bottom:2.5rem;}
+  .cta-btns{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;}
+
+  /* FOOTER */
+  footer{background:#0a1525;border-top:1px solid var(--border);padding:5rem 2rem 2rem;}
+  .footer-grid{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:3rem;margin-bottom:4rem;}
+  .footer-brand p{color:var(--muted);font-size:0.9rem;line-height:1.7;margin-top:1rem;max-width:280px;}
+  .footer-social{display:flex;gap:0.75rem;margin-top:1.5rem;}
+  .social-icon{width:38px;height:38px;background:var(--card);border:1px solid var(--border);border-radius:10px;display:flex;align-items:center;justify-content:center;color:var(--muted);text-decoration:none;font-size:0.9rem;transition:all 0.3s;}
+  .social-icon:hover{background:rgba(0,136,255,0.2);border-color:var(--blue);color:var(--cyan);}
+  .footer-col h4{font-size:0.9rem;font-weight:700;color:#fff;letter-spacing:0.05em;margin-bottom:1.2rem;text-transform:uppercase;}
+  .footer-links{list-style:none;display:flex;flex-direction:column;gap:0.6rem;}
+  .footer-links a{color:var(--muted);text-decoration:none;font-size:0.875rem;transition:color 0.2s;}
+  .footer-links a:hover{color:var(--cyan);}
+  .footer-contact-item{display:flex;align-items:flex-start;gap:0.6rem;color:var(--muted);font-size:0.875rem;margin-bottom:0.75rem;line-height:1.5;}
+  .footer-contact-item a{color:var(--muted);text-decoration:none;transition:color 0.2s;}
+  .footer-contact-item a:hover{color:var(--cyan);}
+  .footer-bottom{max-width:1200px;margin:0 auto;padding-top:2rem;border-top:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;}
+  .footer-bottom p{color:var(--muted);font-size:0.8rem;}
+
+  /* FLOATING ELEMENTS */
+  .whatsapp-float{position:fixed;bottom:2rem;right:2rem;z-index:999;width:58px;height:58px;background:#25D366;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 8px 30px rgba(37,211,102,0.4);text-decoration:none;font-size:1.6rem;animation:float-wa 3s ease-in-out infinite;transition:transform 0.2s;}
+  .whatsapp-float:hover{transform:scale(1.1)!important;}
+  @keyframes float-wa{0%,100%{transform:translateY(0);}50%{transform:translateY(-6px);}}
+  .social-proof{position:fixed;bottom:2rem;left:2rem;z-index:999;max-width:300px;}
+  .proof-toast{background:rgba(15,27,46,0.95);border:1px solid rgba(0,212,255,0.3);border-radius:12px;padding:1rem 1.2rem;display:flex;align-items:center;gap:0.75rem;transform:translateX(-400px);transition:transform 0.5s cubic-bezier(0.34,1.56,0.64,1);backdrop-filter:blur(20px);box-shadow:0 10px 40px rgba(0,0,0,0.3);}
+  .proof-toast.show{transform:translateX(0);}
+  .proof-avatar{width:36px;height:36px;border-radius:50%;background:linear-gradient(135deg,var(--blue),var(--cyan));display:flex;align-items:center;justify-content:center;font-size:1rem;flex-shrink:0;}
+  .proof-text{font-size:0.8rem;line-height:1.4;color:var(--text);}
+  .proof-text strong{color:var(--cyan);}
+  .proof-time{font-size:0.7rem;color:var(--muted);margin-top:2px;}
+
+  /* NEWSLETTER */
+  .newsletter-bar{background:linear-gradient(135deg,rgba(0,136,255,0.15),rgba(0,212,255,0.1));border:1px solid rgba(0,212,255,0.2);border-radius:16px;padding:1.5rem 2rem;max-width:500px;}
+  .newsletter-bar h4{font-size:0.95rem;font-weight:700;margin-bottom:0.5rem;}
+  .newsletter-bar p{color:var(--muted);font-size:0.8rem;margin-bottom:1rem;}
+  .newsletter-form{display:flex;gap:0.5rem;}
+  .newsletter-input{flex:1;background:rgba(255,255,255,0.05);border:1px solid var(--border);color:#fff;padding:0.6rem 1rem;border-radius:100px;font-size:0.85rem;outline:none;font-family:'DM Sans',sans-serif;}
+  .newsletter-input::placeholder{color:var(--muted);}
+  .newsletter-input:focus{border-color:var(--blue);}
+  .newsletter-btn{background:linear-gradient(135deg,var(--blue),var(--cyan));color:#fff;border:none;padding:0.6rem 1.2rem;border-radius:100px;font-weight:700;font-size:0.8rem;cursor:pointer;white-space:nowrap;font-family:'Syne',sans-serif;}
+
+  /* RESPONSIVE */
+  @media(max-width:768px){
+    .nav-links{display:none;position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(15,27,46,0.98);flex-direction:column;align-items:center;justify-content:center;gap:2rem;z-index:999;}
+    .nav-links.open{display:flex;}
+    .hamburger{display:flex;z-index:1000;}
+    .ai-inner{grid-template-columns:1fr;}
+    .ai-visual{display:none;}
+    .footer-grid{grid-template-columns:1fr 1fr;}
+    .hero h1{font-size:2.5rem;}
+    .social-proof{display:none;}
+  }
+  @media(max-width:480px){
+    .footer-grid{grid-template-columns:1fr;}
+  }
+
+  /* SCROLL ANIMATIONS */
+  .fade-up{opacity:0;transform:translateY(40px);transition:opacity 0.8s ease,transform 0.8s ease;}
+  .fade-up.visible{opacity:1;transform:translateY(0);}
+  .stagger-1{transition-delay:0.1s;}
+  .stagger-2{transition-delay:0.2s;}
+  .stagger-3{transition-delay:0.3s;}
+  .stagger-4{transition-delay:0.4s;}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="mainNav">
+  <a href="index.html" class="nav-logo">ACE DIGITALS <span>GLOBAL</span></a>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="pages/about.html">About</a></li>
+    <li><a href="pages/services.html">Services</a></li>
+    <li><a href="pages/portfolio.html">Portfolio</a></li>
+    <li><a href="pages/store.html">Store</a></li>
+    <li><a href="pages/blog.html">Blog</a></li>
+    <li><a href="pages/contact.html" class="nav-cta">Get Started</a></li>
+  </ul>
+  <div class="hamburger" id="hamburger" onclick="toggleNav()">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div id="particles-js"></div>
+  <div class="hero-content">
+    <div class="hero-badge">
+      <span class="dot"></span>
+      Lagos · Nigeria · Est. 2018
+    </div>
+    <h1>
+      <span class="line1">WE RUN THE</span>
+      <span class="line2">DIGITAL STREETS 🚀</span>
+    </h1>
+    <p class="hero-sub">Helping brands, startups, and creators dominate the internet through powerful websites, AI automation, and high-growth marketing strategies that deliver real results.</p>
+    <div class="hero-btns">
+      <a href="pages/contact.html" class="btn-primary">✦ Start Your Digital Transformation</a>
+      <a href="https://wa.me/2349079581937?text=Hi%20Ace%20Digitals%2C%20I%20want%20to%20transform%20my%20digital%20presence" class="btn-whatsapp" target="_blank">💬 Chat on WhatsApp</a>
+    </div>
+  </div>
+  <div class="hero-scroll">
+    <span>Scroll</span>
+    <div class="scroll-line"></div>
+  </div>
+</section>
+
+<!-- STATS -->
+<section class="stats-section">
+  <div class="stats-grid">
+    <div class="stat-card fade-up">
+      <div class="stat-num" data-count="200">0</div>
+      <div class="stat-label">Websites Built</div>
+    </div>
+    <div class="stat-card fade-up stagger-1">
+      <div class="stat-num" data-count="500">0</div>
+      <div class="stat-label">Businesses Helped</div>
+    </div>
+    <div class="stat-card fade-up stagger-2">
+      <div class="stat-num" data-count="50">0</div>
+      <div class="stat-label">Automation Systems Built</div>
+    </div>
+    <div class="stat-card fade-up stagger-3">
+      <div class="stat-num" data-count="10">0</div>
+      <div class="stat-label">Countries Served</div>
+    </div>
+    <div class="stat-card fade-up stagger-4">
+      <div class="stat-num" data-count="7">0</div>
+      <div class="stat-label">Years of Excellence</div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="services-section">
+  <div class="section-header fade-up">
+    <span class="section-tag">⚡ What We Do</span>
+    <h2 class="section-title">Digital Services That <span class="highlight">Actually Work</span></h2>
+    <p class="section-sub">From cutting-edge websites to AI automation systems — we deliver end-to-end digital solutions for Africa's boldest brands.</p>
+  </div>
+  <div class="services-grid">
+    <a href="pages/services.html#web-dev" class="service-card fade-up">
+      <div class="service-icon">🌐</div>
+      <h3>Website Development</h3>
+      <p>Premium WordPress and custom websites designed for speed, conversions, and brand authority. Mobile-first, SEO-ready.</p>
+      <div class="service-arrow">Explore Service →</div>
+    </a>
+    <a href="pages/services.html#social" class="service-card fade-up stagger-1">
+      <div class="service-icon">📲</div>
+      <h3>Social Media Marketing</h3>
+      <p>Strategic content, audience growth, and engagement systems that build real community and drive consistent sales.</p>
+      <div class="service-arrow">Explore Service →</div>
+    </a>
+    <a href="pages/services.html#automation" class="service-card fade-up stagger-2">
+      <div class="service-icon">🤖</div>
+      <h3>AI Automation Systems</h3>
+      <p>Custom AI workflows, chatbots, and automation pipelines that save time, reduce costs, and scale your operations.</p>
+      <div class="service-arrow">Explore Service →</div>
+    </a>
+    <a href="pages/services.html#gmb" class="service-card fade-up stagger-3">
+      <div class="service-icon">📍</div>
+      <h3>Google My Business</h3>
+      <p>Full GMB setup, optimization, and management to dominate local search and attract nearby customers.</p>
+      <div class="service-arrow">Explore Service →</div>
+    </a>
+    <a href="pages/services.html#monetization" class="service-card fade-up">
+      <div class="service-icon">💰</div>
+      <h3>Social Media Monetization</h3>
+      <p>Turn your social following into a revenue stream with proven monetization strategies and income systems.</p>
+      <div class="service-arrow">Explore Service →</div>
+    </a>
+    <a href="pages/services.html#saas" class="service-card fade-up stagger-1">
+      <div class="service-icon">⚙️</div>
+      <h3>SaaS Development</h3>
+      <p>From concept to launch — we build scalable software-as-a-service products built for growth and retention.</p>
+      <div class="service-arrow">Explore Service →</div>
+    </a>
+  </div>
+</section>
+
+<!-- PORTFOLIO PREVIEW -->
+<section class="portfolio-section">
+  <div class="section-header fade-up">
+    <span class="section-tag">🏆 Our Work</span>
+    <h2 class="section-title">Projects That <span class="highlight">Prove Results</span></h2>
+    <p class="section-sub">Real clients. Real websites. Real impact. Browse our portfolio of digital transformations across Africa.</p>
+  </div>
+  <div class="portfolio-grid">
+    <div class="portfolio-card fade-up">
+      <div class="portfolio-img">
+        <div class="portfolio-img-bg">❄️</div>
+        <div class="portfolio-url">primecooltech.ng</div>
+      </div>
+      <div class="portfolio-body">
+        <span class="portfolio-tag">WordPress • E-Commerce</span>
+        <h3>Prime Cool Tech</h3>
+        <p>Full e-commerce website for cooling technology company with product catalog, booking system and SEO optimization.</p>
+      </div>
+    </div>
+    <div class="portfolio-card fade-up stagger-1">
+      <div class="portfolio-img" style="background:linear-gradient(135deg,rgba(255,215,0,0.2),rgba(0,136,255,0.15));">
+        <div class="portfolio-img-bg">🏨</div>
+        <div class="portfolio-url">villapalazzohotel.ng</div>
+      </div>
+      <div class="portfolio-body">
+        <span class="portfolio-tag">Hospitality • Booking</span>
+        <h3>Villa Palazzo Hotel</h3>
+        <p>Luxury hotel website with room booking system, gallery, and integrated reservation management platform.</p>
+      </div>
+    </div>
+    <div class="portfolio-card fade-up stagger-2">
+      <div class="portfolio-img" style="background:linear-gradient(135deg,rgba(255,107,107,0.2),rgba(0,136,255,0.15));">
+        <div class="portfolio-img-bg">🏢</div>
+        <div class="portfolio-url">straddlepartners.com.ng</div>
+      </div>
+      <div class="portfolio-body">
+        <span class="portfolio-tag">Corporate • Real Estate</span>
+        <h3>Straddle Partners</h3>
+        <p>Corporate identity website for property and business consulting firm with portfolio and client portal.</p>
+      </div>
+    </div>
+  </div>
+  <div style="text-align:center;margin-top:3rem;">
+    <a href="pages/portfolio.html" class="btn-primary">View Full Portfolio →</a>
+  </div>
+</section>
+
+<!-- AI AUTOMATION -->
+<section class="ai-section">
+  <div class="ai-bg-glow"></div>
+  <div class="ai-inner">
+    <div>
+      <span class="section-tag">🤖 AI-Powered</span>
+      <h2 class="section-title" style="text-align:left;margin-bottom:0.5rem;">Automation That <span class="highlight">Works While You Sleep</span></h2>
+      <p style="color:var(--muted);font-size:1rem;line-height:1.7;margin-bottom:0;">We build intelligent systems that automate repetitive tasks, qualify leads 24/7, and scale your business without hiring more people.</p>
+      <div class="ai-features">
+        <div class="ai-feature fade-up">
+          <div class="ai-feature-icon">⚡</div>
+          <div>
+            <h4>Lead Capture & CRM Automation</h4>
+            <p>Auto-capture, tag, and nurture leads from every channel into your CRM without manual effort.</p>
+          </div>
+        </div>
+        <div class="ai-feature fade-up stagger-1">
+          <div class="ai-feature-icon">💬</div>
+          <div>
+            <h4>AI Chatbots & Customer Support</h4>
+            <p>Intelligent chatbots trained on your business that handle inquiries, bookings, and sales 24/7.</p>
+          </div>
+        </div>
+        <div class="ai-feature fade-up stagger-2">
+          <div class="ai-feature-icon">📊</div>
+          <div>
+            <h4>Marketing Automation Flows</h4>
+            <p>Email sequences, social post scheduling, and content pipelines automated end-to-end.</p>
+          </div>
+        </div>
+      </div>
+      <div style="margin-top:2rem;">
+        <a href="pages/services.html#automation" class="btn-primary">Build My Automation System →</a>
+      </div>
+    </div>
+    <div class="ai-visual">
+      <div class="ai-orb">
+        <div class="orbit-ring" style="width:100%;height:100%;"></div>
+        <div class="orbit-ring"></div>
+        <div class="orbit-ring"></div>
+        <div class="ai-orb-text">AI<br>AUTOMATION<br>ENGINE</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="testimonials-section">
+  <div class="section-header fade-up">
+    <span class="section-tag">⭐ Client Love</span>
+    <h2 class="section-title">What Our <span class="highlight">Clients Say</span></h2>
+  </div>
+  <div class="testimonials-grid">
+    <div class="testimonial-card fade-up">
+      <div class="stars">★★★★★</div>
+      <p class="testimonial-text">Ace Digitals completely transformed our online presence. Our website traffic increased by 300% within 3 months of working with them. Truly exceptional work.</p>
+      <div class="testimonial-author">
+        <div class="author-avatar">OA</div>
+        <div>
+          <div class="author-name">Oluwaseun Adeyemi</div>
+          <div class="author-role">CEO, TechVentures Lagos</div>
+        </div>
+      </div>
+    </div>
+    <div class="testimonial-card fade-up stagger-1">
+      <div class="stars">★★★★★</div>
+      <p class="testimonial-text">The AI automation system they built for us saves us 15 hours per week. Our lead response time went from 2 days to 2 minutes. Incredible ROI.</p>
+      <div class="testimonial-author">
+        <div class="author-avatar">AM</div>
+        <div>
+          <div class="author-name">Amaka Nwosu</div>
+          <div class="author-role">Founder, StyleHouse Nigeria</div>
+        </div>
+      </div>
+    </div>
+    <div class="testimonial-card fade-up stagger-2">
+      <div class="stars">★★★★★</div>
+      <p class="testimonial-text">From zero to 50K followers in 4 months. Their social media strategy is unlike anything I've seen. These guys genuinely run the digital streets.</p>
+      <div class="testimonial-author">
+        <div class="author-avatar">KO</div>
+        <div>
+          <div class="author-name">Kunle Okafor</div>
+          <div class="author-role">Creative Director, KO Studio</div>
+        </div>
+      </div>
+    </div>
+    <div class="testimonial-card fade-up stagger-3">
+      <div class="stars">★★★★★</div>
+      <p class="testimonial-text">Best investment I've made for my hotel. The booking website they built pays for itself every single week. Professional, fast, and reliable team.</p>
+      <div class="testimonial-author">
+        <div class="author-avatar">FO</div>
+        <div>
+          <div class="author-name">Funmilayo Osei</div>
+          <div class="author-role">MD, Villa Palazzo Hotel</div>
+        </div>
+      </div>
+    </div>
+    <div class="testimonial-card fade-up">
+      <div class="stars">★★★★★</div>
+      <p class="testimonial-text">Uchenna and the Ace Digitals team are the real deal. They helped us set up our Google My Business and we now rank #1 for our local keywords.</p>
+      <div class="testimonial-author">
+        <div class="author-avatar">TI</div>
+        <div>
+          <div class="author-name">Taiwo Ibrahim</div>
+          <div class="author-role">Owner, Skyline Auto Garage</div>
+        </div>
+      </div>
+    </div>
+    <div class="testimonial-card fade-up stagger-1">
+      <div class="stars">★★★★★</div>
+      <p class="testimonial-text">Their digital products gave me the roadmap I needed to monetize my Instagram. Made back 10x the cost within a month. Highly recommend!</p>
+      <div class="testimonial-author">
+        <div class="author-avatar">NC</div>
+        <div>
+          <div class="author-name">Ngozi Chukwu</div>
+          <div class="author-role">Content Creator, 120K Followers</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRODUCTS PREVIEW -->
+<section class="products-section">
+  <div class="section-header fade-up">
+    <span class="section-tag">📚 Digital Products</span>
+    <h2 class="section-title">Learn, Grow, and <span class="highlight">Scale Faster</span></h2>
+    <p class="section-sub">Our ebooks and guides pack years of digital marketing experience into actionable, results-driven knowledge.</p>
+  </div>
+  <div class="products-grid">
+    <div class="product-card fade-up">
+      <div class="product-cover product-cover-1">📱</div>
+      <div class="product-body">
+        <span class="product-badge">BESTSELLER</span>
+        <h3>The Social Media Monetization Blueprint</h3>
+        <div class="product-price">₦5,000</div>
+        <a href="https://wa.me/2349079581937?text=I%20want%20to%20buy%20The%20Social%20Media%20Monetization%20Blueprint" class="product-buy-btn" target="_blank">Buy via WhatsApp →</a>
+      </div>
+    </div>
+    <div class="product-card fade-up stagger-1">
+      <div class="product-cover product-cover-2">🤖</div>
+      <div class="product-body">
+        <span class="product-badge">NEW</span>
+        <h3>AI Automation for African Businesses</h3>
+        <div class="product-price">₦8,000</div>
+        <a href="https://wa.me/2349079581937?text=I%20want%20to%20buy%20AI%20Automation%20for%20African%20Businesses" class="product-buy-btn" target="_blank">Buy via WhatsApp →</a>
+      </div>
+    </div>
+    <div class="product-card fade-up stagger-2">
+      <div class="product-cover product-cover-3">🌐</div>
+      <div class="product-body">
+        <span class="product-badge">POPULAR</span>
+        <h3>Local SEO Domination Guide</h3>
+        <div class="product-price">₦4,500</div>
+        <a href="https://wa.me/2349079581937?text=I%20want%20to%20buy%20Local%20SEO%20Domination%20Guide" class="product-buy-btn" target="_blank">Buy via WhatsApp →</a>
+      </div>
+    </div>
+    <div class="product-card fade-up stagger-3">
+      <div class="product-cover product-cover-4">💰</div>
+      <div class="product-body">
+        <span class="product-badge">BUNDLE</span>
+        <h3>Digital Marketing Starter Pack (5 Books)</h3>
+        <div class="product-price">₦15,000</div>
+        <a href="https://wa.me/2349079581937?text=I%20want%20to%20buy%20the%20Digital%20Marketing%20Starter%20Pack" class="product-buy-btn" target="_blank">Buy via WhatsApp →</a>
+      </div>
+    </div>
+  </div>
+  <div style="text-align:center;margin-top:3rem;">
+    <a href="pages/store.html" class="btn-primary">Browse Full Store →</a>
+  </div>
+</section>
+
+<!-- BLOG PREVIEW -->
+<section class="blog-section">
+  <div class="section-header fade-up">
+    <span class="section-tag">✍️ Latest Insights</span>
+    <h2 class="section-title">The Digital Streets <span class="highlight">Blog</span></h2>
+    <p class="section-sub">Expert digital marketing strategies, AI insights, and growth tactics — fresh from the streets of Lagos to the world.</p>
+  </div>
+  <div class="blog-grid">
+    <a href="pages/blog.html#seo" class="blog-card fade-up">
+      <div class="blog-img blog-img-1">🔍</div>
+      <div class="blog-body">
+        <span class="blog-cat">Local SEO</span>
+        <h3>How to Rank #1 on Google in Lagos: The Complete Local SEO Playbook</h3>
+        <p>A step-by-step guide to dominating Google search results for your local Nigerian business in 2025.</p>
+        <div class="blog-meta"><span>📅 Dec 2024</span><span>⏱ 8 min read</span></div>
+      </div>
+    </a>
+    <a href="pages/blog.html#ai" class="blog-card fade-up stagger-1">
+      <div class="blog-img blog-img-2">🤖</div>
+      <div class="blog-body">
+        <span class="blog-cat">AI Automation</span>
+        <h3>5 AI Automation Tools Every Nigerian Business Needs in 2025</h3>
+        <p>Discover how African businesses are using AI to cut costs, scale faster, and beat the competition.</p>
+        <div class="blog-meta"><span>📅 Nov 2024</span><span>⏱ 10 min read</span></div>
+      </div>
+    </a>
+    <a href="pages/blog.html#social" class="blog-card fade-up stagger-2">
+      <div class="blog-img blog-img-3">📲</div>
+      <div class="blog-body">
+        <span class="blog-cat">Social Media</span>
+        <h3>How to Grow Your Instagram from 0 to 10,000 Followers in 90 Days</h3>
+        <p>The exact strategy we used to grow multiple Nigerian brand accounts from zero to viral within 3 months.</p>
+        <div class="blog-meta"><span>📅 Oct 2024</span><span>⏱ 12 min read</span></div>
+      </div>
+    </a>
+  </div>
+  <div style="text-align:center;margin-top:3rem;">
+    <a href="pages/blog.html" class="btn-primary">Read All Articles →</a>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section">
+  <div class="cta-bg"></div>
+  <div class="cta-inner">
+    <h2>Ready to <span style="background:linear-gradient(135deg,var(--blue),var(--cyan));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">Dominate</span> Your Digital Space?</h2>
+    <p>Join 500+ businesses that have transformed their digital presence with Ace Digitals Global. Let's build something powerful together.</p>
+    <div class="cta-btns">
+      <a href="pages/contact.html" class="btn-primary">✦ Start Your Project Today</a>
+      <a href="https://wa.me/2349079581937?text=Hi%2C%20I%27m%20ready%20to%20start%20my%20digital%20project%20with%20Ace%20Digitals" class="btn-whatsapp" target="_blank">💬 WhatsApp Us Now</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <a href="index.html" class="nav-logo" style="font-size:1.1rem;">ACE DIGITALS <span>GLOBAL</span></a>
+      <p>Lagos-based digital powerhouse helping creators, startups, and businesses dominate the internet. We run the digital streets — and we'll help you do the same.</p>
+      <div class="footer-social">
+        <a href="#" class="social-icon" title="Instagram">📸</a>
+        <a href="#" class="social-icon" title="TikTok">🎵</a>
+        <a href="#" class="social-icon" title="Facebook">📘</a>
+        <a href="#" class="social-icon" title="X/Twitter">🐦</a>
+        <a href="#" class="social-icon" title="LinkedIn">💼</a>
+      </div>
+      <div style="margin-top:1.5rem;">
+        <div class="newsletter-bar">
+          <h4>Get Free Digital Tips</h4>
+          <p>Join 2,000+ subscribers getting weekly growth strategies.</p>
+          <div class="newsletter-form">
+            <input type="email" class="newsletter-input" placeholder="Your email address">
+            <button class="newsletter-btn">Subscribe</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h4>Services</h4>
+      <ul class="footer-links">
+        <li><a href="pages/services.html#web-dev">Website Development</a></li>
+        <li><a href="pages/services.html#social">Social Media Marketing</a></li>
+        <li><a href="pages/services.html#automation">AI Automation</a></li>
+        <li><a href="pages/services.html#gmb">Google My Business</a></li>
+        <li><a href="pages/services.html#monetization">Social Monetization</a></li>
+        <li><a href="pages/services.html#saas">SaaS Development</a></li>
+        <li><a href="pages/services.html#cv">CV Revamp</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Company</h4>
+      <ul class="footer-links">
+        <li><a href="pages/about.html">About Us</a></li>
+        <li><a href="pages/portfolio.html">Portfolio</a></li>
+        <li><a href="pages/blog.html">Blog</a></li>
+        <li><a href="pages/store.html">Digital Store</a></li>
+        <li><a href="pages/testimonials.html">Testimonials</a></li>
+        <li><a href="pages/contact.html">Contact</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Contact</h4>
+      <div class="footer-contact-item">📧 <a href="mailto:acedigitalsempire@gmail.com">acedigitalsempire@gmail.com</a></div>
+      <div class="footer-contact-item">📧 <a href="mailto:info@acedigitalsempire.com">info@acedigitalsempire.com</a></div>
+      <div class="footer-contact-item">📞 <a href="tel:+2349079581937">+234 907 958 1937</a></div>
+      <div class="footer-contact-item">📞 <a href="tel:+18733522008">+1 873 352 2008</a></div>
+      <div class="footer-contact-item">📍 Lekki, Lagos, Nigeria</div>
+      <div style="margin-top:1rem;">
+        <a href="https://wa.me/2349079581937" class="btn-whatsapp" style="padding:0.5rem 1rem;font-size:0.85rem;display:inline-flex;" target="_blank">💬 WhatsApp</a>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2025 Ace Digitals Global. All rights reserved. Formerly Ace Digitals Empire.</p>
+    <p style="color:var(--muted);">Made with ❤️ in Lagos, Nigeria 🇳🇬</p>
+  </div>
+</footer>
+
+<!-- FLOATING WHATSAPP -->
+<a href="https://wa.me/2349079581937?text=Hi%20Ace%20Digitals%2C%20I%27d%20like%20to%20discuss%20a%20project" class="whatsapp-float" target="_blank" title="Chat on WhatsApp">💬</a>
+
+<!-- SOCIAL PROOF TOASTS -->
+<div class="social-proof" id="socialProof">
+  <div class="proof-toast" id="proofToast">
+    <div class="proof-avatar" id="proofAvatar">🔥</div>
+    <div>
+      <div class="proof-text" id="proofText"></div>
+      <div class="proof-time">Just now</div>
+    </div>
+  </div>
+</div>
+
+<script>
+// NAV SCROLL
+window.addEventListener('scroll',()=>{
+  document.getElementById('mainNav').classList.toggle('scrolled',window.scrollY>50);
+});
+
+// MOBILE NAV
+function toggleNav(){
+  document.getElementById('navLinks').classList.toggle('open');
+}
+
+// PARTICLES
+particlesJS('particles-js',{
+  particles:{number:{value:80,density:{enable:true,value_area:800}},color:{value:'#00D4FF'},shape:{type:'circle'},opacity:{value:0.4,random:true,anim:{enable:true,speed:0.5,opacity_min:0.1}},size:{value:2,random:true},line_linked:{enable:true,distance:150,color:'#0088FF',opacity:0.2,width:1},move:{enable:true,speed:1.2,direction:'none',random:true,straight:false,out_mode:'out'}},
+  interactivity:{detect_on:'canvas',events:{onhover:{enable:true,mode:'grab'},onclick:{enable:true,mode:'push'}},modes:{grab:{distance:200,line_linked:{opacity:0.5}}}},
+  retina_detect:true
+});
+
+// COUNTER ANIMATION
+function animateCounters(){
+  document.querySelectorAll('[data-count]').forEach(el=>{
+    const target=parseInt(el.dataset.count);
+    let current=0;
+    const step=target/60;
+    const timer=setInterval(()=>{
+      current=Math.min(current+step,target);
+      el.textContent=Math.floor(current)+(target>=100?'+':target>10?'+':'+');
+      if(current>=target)clearInterval(timer);
+    },30);
+  });
+}
+
+// SCROLL ANIMATIONS
+const observer=new IntersectionObserver((entries)=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting){
+      e.target.classList.add('visible');
+      if(e.target.closest('.stats-section'))animateCounters();
+    }
+  });
+},{threshold:0.1});
+document.querySelectorAll('.fade-up').forEach(el=>observer.observe(el));
+
+// SOCIAL PROOF TOASTS
+const proofs=[
+  {icon:'📱',text:'<strong>Oluwaseun</strong> from Lagos just purchased 10,000 Instagram Likes 🔥'},
+  {icon:'🎥',text:'<strong>Amanda</strong> from Nairobi just got 5,000 YouTube Subscribers'},
+  {icon:'💻',text:'<strong>Tunde</strong> from Abuja booked a Website Development Package'},
+  {icon:'🤖',text:'<strong>Chioma</strong> just purchased the AI Automation Guide'},
+  {icon:'📈',text:'<strong>Emeka</strong> from Port Harcourt started Social Media Marketing'},
+  {icon:'🏨',text:'<strong>Fatima</strong> from Kano just launched her hotel website'},
+  {icon:'📚',text:'<strong>David</strong> from Ghana bought the Digital Marketing Bundle'},
+];
+let proofIndex=0;
+function showProof(){
+  const proof=proofs[proofIndex%proofs.length];
+  const toast=document.getElementById('proofToast');
+  document.getElementById('proofAvatar').textContent=proof.icon;
+  document.getElementById('proofText').innerHTML=proof.text;
+  toast.classList.add('show');
+  setTimeout(()=>toast.classList.remove('show'),4000);
+  proofIndex++;
+}
+setTimeout(()=>{showProof();setInterval(showProof,10000);},3000);
+
+// GSAP SCROLL ANIMATIONS
+gsap.registerPlugin(ScrollTrigger);
+gsap.from('.hero-content',{duration:1.2,y:60,opacity:0,ease:'power3.out',delay:0.3});
+</script>
+</body>
+</html>
